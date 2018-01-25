@@ -3,54 +3,76 @@
 
 <head>
     <title>Adventure Game</title>
-    </head>
-    <body>
+</head>
+
+<body>
     <hl>Adventure Game v1.0</hl>
     <p>Made by: Kyler Draper</p>
     <script>
-       
         Start();
-        
-        function Start(){
-        
-            var playerName = prompt("What is your name adventurer?")
-            
-            alert("Welcome to land of Work in Progress, " + playerName);
-            
-            var startGame = confirm("Are you ready to begin your adventure?");
-            
-            if(startGame){
-                Village();
-            }
-            else{
-                alert("Sad day :(, Bye!");
-            }
-        }
-        
-        function Village(){
-            
-            var village = prompt("You arrive at a small village. There's a blacksmith named Phil, an inn, a stable, and several wooden homes. ").toLowerCase();
-            
-            switch(village){
-                
-                case "blacksmith ":
-                    }
-                    alert("The blacksmith looks hungry. You think to yourself, Man I wonder why he's hungry?");
-                break;
-                
-                case "inn":
-                    alert("WIP");
-                break;
-               
-                case "Stable":
-                    alert("WIP");
-                break;
-                
+
+
+        function Start() {
+
+            var playerName = prompt("What is your name adventurer?").toUpperCase();
+
+            switch (playerName) {
+                case "IDK":
+                    alert("Wow you're original. ヽ(ಠ_ಠ)ノ How can you not come up with a random name? It's not that hard, just type in random letters if you have to.");
+                    alert("Welcome to land of Work in Progress, lazy. In this land nothing ever gets finished! So, watch out for falling bricks.");
+                    break;
+                case "TIDE POD":
+                    alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play. Bye loser.")
+                    closeWin();
+
+                case "TIDEPOD":
+                    alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play. Bye loser.")
+                    closeWin();
+
+                case "FIDGET SPINNER":
+                    alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play. Bye loser.")
+                    closeWin();
+
+                case "FIDGETSPINNER":
+                    alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play. Bye loser.")
+                    closeWin()
                 default:
-                    alert("I'm the village fool. I do not understand " + village);
-            
+                    alert("Welcome to land of Work in Progress, " + playerName + " In this land nothing ever gets finished! So, watch out for falling bricks.");
+            }
+            var startGame = confirm("Are you ready to begin your adventure?");
+
+            if (startGame) {
+                unfinishedBuilding();
+            } else {
+                alert("WHAT!!!! How could you do this? (╯°□°）╯︵ ┻━┻ Bye then! (◔_◔)");
+            }
         }
-        
+
+        function unfinishedBuilding() {
+            var unfinished_Building = prompt("You arrive at an unfinished building. Go figure. ").toLowerCase();
+
+            switch (unfinished_Building) {
+
+                case "building":
+                    alert("WIP");
+                    unfinishedBuilding();
+                    break;
+                case "run away":
+                    alert("WIP");
+                    unfinishedBuilding();
+                    break;
+                default:
+                    alert("I'm a computer built for certain commands. I do not understand " + unfinished_Building);
+                    break;
+                    unfinishedBuilding();
+            }
+
+        }
+
+        function closeWin() {
+            myWindow.close();
+        }
+
     </script>
 </body>
 
