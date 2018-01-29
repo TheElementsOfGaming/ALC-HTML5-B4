@@ -19,33 +19,33 @@
             switch (playerName) {
                 case "IDK":
                     alert("Wow you're original. ヽ(ಠ_ಠ)ノ How can you not come up with a random name? It's not that hard, just type in random letters if you have to.");
-                    alert("Welcome to land of Work in Progress, lazy. In this land nothing ever gets finished! So, watch out for falling bricks.");
+                    alert("Welcome to land of Work In Progress, lazy. In this land nothing ever gets finished! So, watch out for falling bricks.");
                     break;
                 case "I DON'T KNOW":
                     alert("Wow you're original. ヽ(ಠ_ಠ)ノ How can you not come up with a random name? It's not that hard, just type in random letters if you have to.");
-                    alert("Welcome to land of Work in Progress, lazy. In this land nothing ever gets finished! So, watch out for falling bricks.");
+                    alert("Welcome to land of Work In Progress, lazy. In this land nothing ever gets finished! So, watch out for falling bricks.");
                     break;
                 case "IDON'TKNOW":
                     alert("Wow you're original. ヽ(ಠ_ಠ)ノ How can you not come up with a random name? It's not that hard, just type in random letters if you have to.");
-                    alert("Welcome to land of Work in Progress, lazy. In this land nothing ever gets finished! So, watch out for falling bricks.");
+                    alert("Welcome to land of Work In Progress, lazy. In this land nothing ever gets finished! So, watch out for falling bricks.");
                     break;
                 case "TIDE POD":
-                    alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play. Bye loser.")
+                    alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play.")
                     closeWin();
 
                 case "TIDEPOD":
-                    alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play. Bye loser.")
+                    alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play.")
                     closeWin();
 
                 case "FIDGET SPINNER":
-                    alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play. Bye loser.")
+                    alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play.")
                     closeWin();
 
                 case "FIDGETSPINNER":
-                    alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play. Bye loser.")
+                    alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play.")
                     closeWin()
                 default:
-                    alert("Welcome to land of Work in Progress, " + playerName + " In this land nothing ever gets finished! So, watch out for falling bricks.");
+                    alert("Welcome to land of Work In Progress " + playerName + "," + " in this land nothing ever gets finished! So, watch out for falling bricks.");
             }
             var startGame = confirm("Are you ready to begin your adventure?");
 
@@ -57,26 +57,45 @@
         }
 
         function unfinishedBuilding() {
-            var unfinished_Building = prompt("You arrive at an unfinished building. Go figure. ").toLowerCase();
+            var unfinished_Building = prompt("You arrive at an unfinished building. Go figure." + " Do you want to go inside the building, or run away?").toLowerCase();
 
-            switch (unfinished_Building) {
+            switch (unfinished_Building){
 
-                case "building":
-                    alert("WIP");
-                    unfinishedBuilding();
+                case "go inside the building":
+                    insideTheBuilding();
                     break;
-                case "run away":
-                    alert("WIP");
-                    unfinishedBuilding();
+				case "run away":
+                    runAway();
                     break;
                 default:
                     alert("I'm a computer built for certain commands. I do not understand " + unfinished_Building);
                     break;
                     unfinishedBuilding();
+                    
             }
 
         }
 
+  		function insideTheBuilding(){
+    		var inside_TheBuilding = prompt("You enter the unfinished building and are greeted by a strange traveller." + " The traveller greets you with a simple hello." + " You can ask a couple questions: who are you, or hello.").toLowerCase();
+											
+            
+            switch (inside_TheBuilding){
+                case "who are you?":
+                    alert("WIP")
+                    break;
+                case "who are you":
+                    alert("WIP")
+                    break;
+                case "hello":
+                    alert("WIP")
+                    break;        
+            }
+        }
+        function runAway(){
+            var run_Away = prompt("You ran away!" + " Game Over!")
+            closeWin();
+        }
         function closeWin() {
             myWindow.close();
         }
