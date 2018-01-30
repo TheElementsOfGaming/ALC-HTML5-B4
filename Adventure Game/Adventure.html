@@ -11,7 +11,7 @@
     <script>
         //inventory
         var inventory = {
-            pocketknife: 0,
+            Stick: 0,
         }
 
         Start();
@@ -72,61 +72,32 @@
                     runAway();
                 default:
                     alert("I'm a computer built for certain commands. I do not understand " + unfinished_Building);
-
-                    unfinishedBuilding();
+					unfinishedBuilding();
 
             }
 
         }
 
         function insideTheBuilding() {
-            var inside_TheBuilding = prompt("You enter the unfinished building and are greeted by a strange traveller." + " The traveller greets you with a simple hello." + " You can ask or say a few things: who are you, or hello.").toLowerCase();
+            var inside_TheBuilding = prompt("You enter the unfinished building and are greeted by a strange traveller." + " The traveller greets you with a simple hello.").toLowerCase();
 
 
             switch (inside_TheBuilding) {
                 case "who are you?":
-                    browseShopResponse();
+					break;
                 case "who are you":
-                    browseShopResponse();
-                case "hello":
-                    browseShopResponse();
+					break;
+				case "hello":
+					break;
             }
         }
-
-        function runAway() {
+		function runAway() {
             var run_Away = prompt("You ran away!" + " Game Over!")
             closeWin();
         }
 
         function closeWin() {
             myWindow.close();
-        }
-
-        function browseShopResponse() {
-            var browse_Shop_Response = prompt("I'm a magical traveller who's wondering if you want to browse my wears?").toLowerCase();
-
-            switch (browse_Shop_Response) {
-                case "yes":
-                    cannotBrowseShop();
-                case "no"
-                alert("Okay, I'll just move over so you can access this door.");
-                var theDoor = prompt("Do you want to enter the room?").toLowerCase;
-
-                switch (theDoor) {
-                case "yes":
-                    theBeginning();
-                case "no":
-                    unfinishedBuilding();
-                }
-            }
-
-            function cannotBrowseShop() {
-                var noBrowsingShop = alert("Wait, you don't have any money!! You can't browse my shop without money, but here take this. *The man hands you a tiny pocketknife and disappears. You see that that there was a door hiding behind him.");
-                inventory.pocketknife++;
-               var the_Door = prompt("Do you want to enter the room?");
-                
-
-            }
         }
 
     </script>
