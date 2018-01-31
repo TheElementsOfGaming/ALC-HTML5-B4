@@ -12,6 +12,7 @@
         //inventory
         var inventory = {
             Stick: 0,
+            Glowstick: 0,
         }
 
         Start();
@@ -62,35 +63,49 @@
         }
 
         function unfinishedBuilding() {
-            var unfinished_Building = prompt("You arrive at outside of a half painted building. Do you want to go inside the building, or run away?").toLowerCase();
+            var unfinished_Building = prompt("You arrive outside of a half painted building. Do you want to go inside the building, or run away?").toLowerCase();
 
             switch (unfinished_Building) {
 
                 case "go inside the building":
                     insideTheBuilding();
+                case "enter the building":
+                    insideTheBuilding();
                 case "run away":
                     runAway();
                 default:
                     alert("I'm a computer built for certain commands. I do not understand " + unfinished_Building);
-					unfinishedBuilding();
+                    unfinishedBuilding();
 
             }
 
         }
 
         function insideTheBuilding() {
-            var inside_TheBuilding = prompt("You enter the unfinished building and are greeted by a strange traveller." + " The traveller greets you with a simple hello.").toLowerCase();
-	
+            var inside_TheBuilding = prompt("You enter the half painted building and are greeted by a strange traveller." + " The traveller greets you with a simple hello.").toLowerCase();
+
             switch (inside_TheBuilding) {
                 case "who are you?":
-					merchantResponse();
+                    merchantResponse();
                 case "who are you":
-					merchantResponse();
-				case "hello":
-					merchantResponse2();
+                    merchantResponse();
+                case "hello":
+                    merchantResponse2();
+                case "hi":
+                    merchantResponse2();
+                case "greetings":
+                    merchantResponse2();
+                case "hey":
+                    merchantResponse2();
+                case "howdy":
+                    merchantResponse2();
+                default:
+                    alert("I'm a computer built for certain commands. I don't understand " + inside_TheBuilding);
+                    insideTheBuilding();
             }
         }
-		function runAway() {
+
+        function runAway() {
             var run_Away = prompt("You ran away!" + " Game Over!")
             closeWin();
         }
@@ -98,75 +113,181 @@
         function closeWin() {
             myWindow.close();
         }
-		
-		function merchantResponse2(){
-			var merchant_Response2 = prompt("Hi, would like to browse my wears?").toLowerCase();	
-			
-			switch (merchant_Response2) {
-				case "yes":	
-					browseShop();
-				case "no":
-					theDoor();
-			}
-	    }
-		
-		function merchantResponse() {
-			var merchant_Response = prompt("I'm a simple merchant. Would you like to browse my wears?").toLowerCase();
-			
-			switch (merchant_Response) {
-				case "yes":
-					browseShop();
-				case "no":
-					theDoor();
-			}
-		}
-		
-		function browseShop() {
-			alert("Wait, you can't browse my shop. You don't have any money, but here take this. *the merchant hands you a small stick with a sharpened tip*" + "This could come in handy later.")
-			inventory.Stick++;
-			theDoor2();
-		}
-		
-		function theDoor() {
-			alert("Alright, I guess I'll just move over then so you can go through this door. *the merchant moves over and reveals a door behind him*")
-			
-			var the_Door = prompt("Do you want to enter the door?").toLowerCase();
-			
-			switch (the_Door) {
-				case "yes":
-					theBeginning();
-				case "no":
-					justSitting();
-			}
-		}
-		
-		function theDoor2() {
-			alert("Now onto your adventure. *the merchant moves over and reveals a door behind him*")
-			
-			var the_Door2 = prompt("Do you want to enter the door?").toLowerCase();
-			
-			switch (the_Door2) {
-				case "yes":
-					theBeginning();
-				case "no":
-					justSitting();
-			}
-		}
-		
-		function justSitting() {
-			
-			var just_Sitting = prompt("So you're just gonna sit there and do nothing?").toLowerCase();
-			
-			switch (just_Sitting) {
-				case "yes":
-					alert("Alright I guess that means you don't want to play the game either.");
-					alert("Game Over!!!")
-					closeWin();
-				case "no":
-					alert("Good choice! :)")
-					theBeginning();
-				}
-			}
+
+        function merchantResponse2() {
+            var merchant_Response2 = prompt("Hi, would like to browse my wears?").toLowerCase();
+
+            switch (merchant_Response2) {
+                case "yes":
+                    browseShop();
+                case "maybe":
+                    browseShop();
+                case "okay":
+                    browseShop();
+                case "sure":
+                    browseShop();
+                case "no":
+                    theDoor();
+                case "nope":
+                    theDoor();
+                case "no way":
+                    theDoor();
+                case "never":
+                    theDoor();
+                default:
+                    alert("I'm a computer built for certain commands. I don't understand" + merchant_Response2);
+                    merchantResponse2();
+            }
+        }
+
+        function merchantResponse() {
+            var merchant_Response = prompt("I'm a simple merchant. Would you like to browse my wears?").toLowerCase();
+
+            switch (merchant_Response) {
+                case "yes":
+                    browseShop();
+                case "maybe":
+                    browseShop();
+                case "okay":
+                    browseShop();
+                case "sure":
+                    browseShop();
+                case "no":
+                    theDoor();
+                case "nope":
+                    theDoor();
+                case "no way":
+                    theDoor();
+                case "never":
+                    theDoor();
+                default:
+                    alert("I'm a computer built for certain commands. I don't understand " + merchant_Response);
+                    merchant_Response();
+
+
+            }
+        }
+
+        function browseShop() {
+            alert("Wait, you can't browse my shop. You don't have any money, but here take this. *the merchant hands you a small stick with a sharpened tip*" + "This could come in handy later.")
+            inventory.Stick++;
+            theDoor2();
+        }
+
+        function theDoor() {
+            alert("Alright, I guess I'll just move over then so you can go through this door. *the merchant moves over and reveals a door behind him*")
+
+            var the_Door = prompt("Do you want to enter the door?").toLowerCase();
+
+            switch (the_Door) {
+                case "yes":
+                    theJourneyToNowhere();
+                case "maybe":
+                    theJourneyToNowhere();
+                case "okay":
+                    theJourneyToNowhere();
+                case "sure":
+                    theJourneyToNowhere();
+                case "no":
+                    justSitting();
+                case "nope":
+                    justSitting();
+                case "no way":
+                    justSitting();
+                case "never":
+                    justSitting();
+                default:
+                    alert("I'm a computer built for certain commands. I don't understand " + the_Door);
+                    theDoor();
+            }
+        }
+
+        function theDoor2() {
+            alert("Now onto your adventure. *the merchant moves over and reveals a door behind him*")
+
+            var the_Door2 = prompt("Do you want to enter the door?").toLowerCase();
+
+            switch (the_Door2) {
+                case "yes":
+                    theJourneyToNowhere();
+                case "maybe":
+                    theJourneyToNowhere();
+                case "okay":
+                    theJourneyToNowhere();
+                case "sure":
+                    theJourneyToNowhere();
+                case "no":
+                    justSitting();
+                case "nope":
+                    justSitting();
+                case "no way":
+                    justSitting();
+                case "never":
+                    justSitting();
+                default:
+                    alert("I'm a computer built for certain commands. I don't understand " + the_Door2);
+                    theDoor2();
+            }
+        }
+
+        function justSitting() {
+
+            var just_Sitting = prompt("So you're just gonna sit there and do nothing?").toLowerCase();
+
+            switch (just_Sitting) {
+                case "yes":
+                    alert("Alright I guess that means you don't want to play the game either.");
+                    break;
+                case "maybe":
+                    alert("Alright I guess that means you don't want to play the game either.");
+                    break;
+                case "okay":
+                    alert("Alright I guess that means you don't want to play the game either.");
+                    break;
+                    alert("Game Over!!!");
+                    closeWin();
+                case "no":
+                    alert("Good choice! :)");
+                    theJourneyToNowhere();
+                case "nope":
+                    alert("Good choice! :)");
+                    theJourneyToNowhere();
+                case "no way":
+                    alert("Good choice! :)");
+                    theJourneyToNowhere();
+                case "never":
+                    alert("Good choice! :)");
+                    theJourneyToNowhere();
+                default:
+                    alert("I'm a computer built for certain commands. I don't understand " + just_Sitting);
+                    justSitting();
+            }
+        }
+
+        function theJourneyToNowhere() {
+            alert("You walk through the door. It leads to a hallway that is only lit by the soft glow of a few glowsticks.");
+
+            var theGlowstick = prompt("Would you like to pick up a glowstick?").toLowerCase
+
+            switch (theGlowstick) {
+                case "yes":
+                    alert("You pick up the glowstick and continue to walkdown the hallway.");
+                    inventory.Glowstick++;
+                    theRealStart();
+                case "no":
+                    alert("You don't pick up a glowstick. Hopefully you don't get hit by a falling brick.");
+                    theFirstBrick();
+            }
+        }
+
+        function theRealStart() {
+            alert("WIP");
+        }
+
+        function theFirstBrick() {
+            alert("WIP");
+        }
+
     </script>
 </body>
 
