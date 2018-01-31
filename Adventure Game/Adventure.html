@@ -62,7 +62,7 @@
         }
 
         function unfinishedBuilding() {
-            var unfinished_Building = prompt("You arrive at an unfinished building. Go figure." + " Do you want to go inside the building, or run away?").toLowerCase();
+            var unfinished_Building = prompt("You arrive at outside of a half painted building. Do you want to go inside the building, or run away?").toLowerCase();
 
             switch (unfinished_Building) {
 
@@ -80,15 +80,14 @@
 
         function insideTheBuilding() {
             var inside_TheBuilding = prompt("You enter the unfinished building and are greeted by a strange traveller." + " The traveller greets you with a simple hello.").toLowerCase();
-
-
+	
             switch (inside_TheBuilding) {
                 case "who are you?":
-					break;
+					merchantResponse();
                 case "who are you":
-					break;
+					merchantResponse();
 				case "hello":
-					break;
+					merchantResponse2();
             }
         }
 		function runAway() {
@@ -99,7 +98,75 @@
         function closeWin() {
             myWindow.close();
         }
-
+		
+		function merchantResponse2(){
+			var merchant_Response2 = prompt("Hi, would like to browse my wears?").toLowerCase();	
+			
+			switch (merchant_Response2) {
+				case "yes":	
+					browseShop();
+				case "no":
+					theDoor();
+			}
+	    }
+		
+		function merchantResponse() {
+			var merchant_Response = prompt("I'm a simple merchant. Would you like to browse my wears?").toLowerCase();
+			
+			switch (merchant_Response) {
+				case "yes":
+					browseShop();
+				case "no":
+					theDoor();
+			}
+		}
+		
+		function browseShop() {
+			alert("Wait, you can't browse my shop. You don't have any money, but here take this. *the merchant hands you a small stick with a sharpened tip*" + "This could come in handy later.")
+			inventory.Stick++;
+			theDoor2();
+		}
+		
+		function theDoor() {
+			alert("Alright, I guess I'll just move over then so you can go through this door. *the merchant moves over and reveals a door behind him*")
+			
+			var the_Door = prompt("Do you want to enter the door?").toLowerCase();
+			
+			switch (the_Door) {
+				case "yes":
+					theBeginning();
+				case "no":
+					justSitting();
+			}
+		}
+		
+		function theDoor2() {
+			alert("Now onto your adventure. *the merchant moves over and reveals a door behind him*")
+			
+			var the_Door2 = prompt("Do you want to enter the door?").toLowerCase();
+			
+			switch (the_Door2) {
+				case "yes":
+					theBeginning();
+				case "no":
+					justSitting();
+			}
+		}
+		
+		function justSitting() {
+			
+			var just_Sitting = prompt("So you're just gonna sit there and do nothing?").toLowerCase();
+			
+			switch (just_Sitting) {
+				case "yes":
+					alert("Alright I guess that means you don't want to play the game either.");
+					alert("Game Over!!!")
+					closeWin();
+				case "no":
+					alert("Good choice! :)")
+					theBeginning();
+				}
+			}
     </script>
 </body>
 
