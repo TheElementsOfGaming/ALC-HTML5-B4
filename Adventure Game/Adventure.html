@@ -170,7 +170,7 @@
         }
 
         function browseShop() {
-            alert("Wait, you can't browse my shop. You don't have any money, but here take this." + "\n *the merchant hands you a small stick with a sharpened tip* " + "\n  This could come in handy later."); 
+            alert("Wait, you can't browse my shop. You don't have any bricks, but here take this: *the merchant hands you a small stick with a sharpened tip* " + "\n  This could come in handy later."); 
             //added stick to inventory
             inventory.Stick++;
             //Informs user of how many sticks they have
@@ -241,14 +241,15 @@
             switch (just_Sitting) {
                 case "yes":
                     alert("Alright I guess that means you don't want to play the game either.");
-                    break;
+                    alert("Game over!!!");
+                    closeWin();
                 case "maybe":
                     alert("Alright I guess that means you don't want to play the game either.");
-                    break;
+                    alert("Game over!!!");
+                    closeWin();
                 case "okay":
                     alert("Alright I guess that means you don't want to play the game either.");
-                    break;
-                    alert("Game Over!!!");
+                    alert("Game over!!!");
                     closeWin();
                 case "no":
                     alert("Good choice! :)");
@@ -269,7 +270,7 @@
         }
 
         function theJourneyToNowhere() {
-            alert("You walk through the door. It leads to a cavern that is only lit by the soft glow of a few glowsticks.");
+            alert("You walk through the door. \n It leads to a cavern that is only lit by the soft glow of a few glowsticks.");
 
             var theGlowstick = prompt("Would you like to pick up a glowstick?").toLowerCase();
 
@@ -282,20 +283,25 @@
                     alert("You have " + inventory.Glowsticks + " glowstick.");
                     theRealStart();
                 case "no":
-                    alert("You don't pick up a glowstick. Hopefully you don't get hit by a falling brick.");
+                    alert("You didn't pick up a glowstick. Hopefully you don't get hit by a falling brick.");
                     theFirstBrick();
             }
         }
 
         function theRealStart() {
-            alert("WIP");
-            break;
+            alert("After what feels like an eternity walking, you finally see a light and so you begin to run towards it.");
+            outOfTheCavern();
         }
 
         function theFirstBrick() {
-            alert("WIP");
-            break;
+            alert("As you're walking down the cavern you hear something crumple and fall. \n Before you can realize what happened a brick hits you in the head and kills you.");
+            alert("Game over!");
+            closeWin()
         }
+    function outOfTheCavern(){
+        alert("This is the end of the line for now. You must wait for more of the game. :)")
+        closeWin();
+    }
     }
 
     </script>
