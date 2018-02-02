@@ -7,12 +7,13 @@
 
 <body>
     <hl>Adventure Game v1.0</hl>
-    <p>Made by: Kyler Draper</p>
+    <p>Made by: The Elements Of Gaming(Kyler Draper)</p>
     <script>
-        //inventory
+        //Javascript Object for an inventory
         var inventory = {
-            Stick: 0,
-            Glowstick: 0,
+            Stick:0,
+            Glowsticks:0,
+            Bricks:0,
         }
 
         Start();
@@ -169,10 +170,13 @@
         }
 
         function browseShop() {
-            alert("Wait, you can't browse my shop. You don't have any money, but here take this. *the merchant hands you a small stick with a sharpened tip*" + "This could come in handy later.")
+            alert("Wait, you can't browse my shop. You don't have any money, but here take this." + "\n *the merchant hands you a small stick with a sharpened tip* " + "\n  This could come in handy later."); 
+            //added stick to inventory
             inventory.Stick++;
+            //Informs user of how many sticks they have
+            alert("You have " + inventory.Stick + " stick.")
             theDoor2();
-        }
+            
 
         function theDoor() {
             alert("Alright, I guess I'll just move over then so you can go through this door. *the merchant moves over and reveals a door behind him*")
@@ -203,7 +207,7 @@
         }
 
         function theDoor2() {
-            alert("Now onto your adventure. *the merchant moves over and reveals a door behind him*")
+            alert("Now onto your adventure. \n *the merchant moves over and reveals a door behind him*")
 
             var the_Door2 = prompt("Do you want to enter the door?").toLowerCase();
 
@@ -265,14 +269,17 @@
         }
 
         function theJourneyToNowhere() {
-            alert("You walk through the door. It leads to a hallway that is only lit by the soft glow of a few glowsticks.");
+            alert("You walk through the door. It leads to a cavern that is only lit by the soft glow of a few glowsticks.");
 
-            var theGlowstick = prompt("Would you like to pick up a glowstick?").toLowerCase
+            var theGlowstick = prompt("Would you like to pick up a glowstick?").toLowerCase();
 
             switch (theGlowstick) {
                 case "yes":
-                    alert("You pick up the glowstick and continue to walkdown the hallway.");
-                    inventory.Glowstick++;
+                    alert("You pick up the glowstick and continue to walk down the cavern.");
+                    //added glowstick to inventory
+                    inventory.Glowsticks++;
+                    //Informed user of how many glowsticks they have
+                    alert("You have " + inventory.Glowsticks + " glowstick.");
                     theRealStart();
                 case "no":
                     alert("You don't pick up a glowstick. Hopefully you don't get hit by a falling brick.");
@@ -282,11 +289,14 @@
 
         function theRealStart() {
             alert("WIP");
+            break;
         }
 
         function theFirstBrick() {
             alert("WIP");
+            break;
         }
+    }
 
     </script>
 </body>
