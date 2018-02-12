@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>WIP</title>
+</head>
+
+<body>
+    <hl>Adventure Game v1.0</hl>
+    <p>Made by: The Elements Of Gaming(Kyler Draper)</p>
+    <script>
+        //Javascript Object for an inventory
+        var inventory = {
+            Stick: 0,
+            Glowsticks: 0,
+            Bricks: 0,
+        }
+        Start();
+
+        function Start() {
+            var playerName = prompt("What is your name adventurer?").toUpperCase();
+            switch (playerName) {
+                case "IDK":
+                    alert("Wow you're original. ヽ(ಠ_ಠ)ノ How can you not come up with a random name? It's not that hard, just type in random letters if you have to.");
+                    alert("Welcome to land of Work In Progress, lazy. In this land nothing ever gets finished! So, watch out for falling bricks.");
+                    break;
+                case "I DON'T KNOW":
+                    alert("Wow you're original. ヽ(ಠ_ಠ)ノ How can you not come up with a random name? It's not that hard, just type in random letters if you have to.");
+                    alert("Welcome to land of Work In Progress, lazy. In this land nothing ever gets finished! So, watch out for falling bricks.");
+                    break;
+                case "IDON'TKNOW":
+                    alert("Wow you're original. ヽ(ಠ_ಠ)ノ How can you not come up with a random name? It's not that hard, just type in random letters if you have to.");
+                    alert("Welcome to land of Work In Progress, lazy. In this land nothing ever gets finished! So, watch out for falling bricks.");
+                    break;
+                case "TIDE POD":
+                    alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play.")
+                    closeWin();
+                case "TIDEPOD":
+                    alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play.")
+                    closeWin();
+                case "FIDGET SPINNER":
+                    alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play.")
+                    closeWin();
+                case "FIDGETSPINNER":
+                    alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play.")
+                    closeWin()
+                default:
+                    alert("Welcome to land of Work In Progress " + playerName + "," + " in this land nothing ever gets finished! So, watch out for falling bricks.");
+            }
+            var startGame = confirm("Are you ready to begin your adventure?");
+            if (startGame) {
+               inTheBeginning();
+            } else {
+                alert("WHAT!!!! How could you do this? (╯°□°）╯︵ ┻━┻ Bye then! (◔_◔)");
+            }
+            function inTheBeginning() {
+                alert("This all began on a frightful night. The winds howled their wretched tune, and the clouds were gunmetal gray. The thuder cracked it's whip of lightning and sounded it's trumpet of thunder. That's when I heard the knock at the door.");
+                alert("*A small boy wakes up from his deep dreadful nightmare. The boy runs to his parents*")
+            }
+        }
+
+    </script>
+</body>
