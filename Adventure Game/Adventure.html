@@ -56,20 +56,21 @@
         }
 
         function unfinishedBuilding() {
-            var unfinished_Building = prompt("You arrive outside of a half painted building. The building is surrounded by a forest. Do you want to go inside the building, run away, or go into the forest?").toLowerCase();
+            var unfinished_Building = prompt("You arrive outside of a half painted building. The building is surrounded by a forest. " + "\n Do you want to go inside the building, run away, or go into the forest?").toLowerCase();
             switch (unfinished_Building) {
-                case "go inside the building":
+                case "go inside building":
                     insideTheBuilding();
-                case "enter the building":
+                case "enter building":
                     insideTheBuilding();
                 case "run away":
                     runAway();
                 case "enter forest":
-                    theForest();
+                    
                 default:
                     alert("I'm a computer built for certain commands. I do not understand " + unfinished_Building);
                     unfinishedBuilding();
             }
+        
         }
 
         function insideTheBuilding() {
@@ -261,12 +262,28 @@
                     case "no":
                         alert("You didn't pick up a glowstick. Hopefully you don't get hit by a falling brick.");
                         theFirstBrick();
+                    default:
+                        alert("I'm a computer built for certain things, I don't understand " + theGlowstick);
+                        theGlowstick();
                 }
             }
 
             function theRealStart() {
                 alert("After what feels like an eternity walking, you finally see a light and so you begin to run towards it.");
-                outOfTheCavern();
+                var cavernDecision = prompt("You came to an opening in the cave. You see a kingdom off in the distance, but there's also another tunnel that leads deeper in the cave. \n Would you like to leave the cave or enter the new tunnel?").toLowerCase();
+                switch (cavernDecision) {
+                    case "leave the cave":
+                        alert("You leave the cave and begin your journey to the kingdom.");
+                        alert("This is the end of the line for now. I'll add more soon. :)");
+                        closeWin();
+                    case "enter the new tunnel":
+                        alert("You begin your journey deeper into the cave. What great treasures lie ahead nobody knows.");
+                        alert("This is the end of line for now. I'll add more soon. :)");
+                        closeWin();
+                    default:
+                        alert("I'm a computer built for certain commands, I don't understand " + cavernDecision);
+                        cavernDecision();
+                }
             }
 
             function theFirstBrick() {
@@ -275,18 +292,36 @@
                 closeWin()
             }
 
-            function outOfTheCavern() {
-                alert("This is the end of the line for now. You gotta wait for more.");
-
+            function missedFirstBrick() {
+                alert("As you're walking down the cavern you hear something crumple and fall. \n You just barely miss getting hit by a brick. congrats!");
+                inventory.Bricks++;
+                alert("You have " + inventory.Bricks + " brick.")
             }
 
-            function theForest() {
-                alert("You enter the forest and are suddenly knocked out by something blue.");
-                blueThing();
+            function theKingdom() {
+                alert("This is the end of the line for now. I'll add more soon. :)");
+                closeWin();
             }
-            
+
             function blueThing() {
-                alert("This is the end of the line for now. You gotta wait for more.");
+                alert("You wake up inside of hut. You see something furry and blue. \n The blue thing suddenly turns his head and walks up. He asks, Do you want to hear a story?")
+                var decisionToRunOrListen = prompt("Do you want to hear the story or run away?").toLowerCase();
+                switch (decisionToRunOrListenecisionToRunOrListen) {
+                    case "listen to story":
+                        alert("It all began on one frightful night. The wind was howling its wretched tune, and the cloud were dark like the night sky. \n I had just finished dinner when a there was a loud bang at my door.")
+                        theKingdom();
+                    case "run away":
+                        alert("You run out the door and back into the forest. The blue thing chases after you angrily.");
+                        alert("You see the blue beast still chasing after you, but you know deep down that he's slowly catching up to you.");
+                        blueThingCatchesUp();
+                    default:
+                        alert("I'm a computer built for certain things I don't understand " + decisionToRunOrListen);
+                }
+
+            }
+
+            function blueThingCatchesUp() {
+                alert("This is the end of line for now. I'll add more soon. :)");
             }
         }
 
