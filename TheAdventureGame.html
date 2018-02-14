@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>WIP</title>
+    <title>The Land of Confusion</title>
 </head>
 
 <body>
@@ -14,6 +14,7 @@
             Stick: 0,
             Glowsticks: 0,
             Bricks: 0,
+            Shiv: 1,
         }
         Start();
 
@@ -22,15 +23,15 @@
             switch (playerName) {
                 case "IDK":
                     alert("Wow you're original. ヽ(ಠ_ಠ)ノ How can you not come up with a random name? It's not that hard, just type in random letters if you have to.");
-                    alert("Welcome to land of Work In Progress, lazy. In this land nothing ever gets finished! So, watch out for falling bricks.");
+                    alert("Welcome to land of Confusion, lazy.");
                     break;
                 case "I DON'T KNOW":
                     alert("Wow you're original. ヽ(ಠ_ಠ)ノ How can you not come up with a random name? It's not that hard, just type in random letters if you have to.");
-                    alert("Welcome to land of Work In Progress, lazy. In this land nothing ever gets finished! So, watch out for falling bricks.");
+                    alert("Welcome to land of confusion, lazy.");
                     break;
                 case "IDON'TKNOW":
                     alert("Wow you're original. ヽ(ಠ_ಠ)ノ How can you not come up with a random name? It's not that hard, just type in random letters if you have to.");
-                    alert("Welcome to land of Work In Progress, lazy. In this land nothing ever gets finished! So, watch out for falling bricks.");
+                    alert("Welcome to land of confusion.");
                     break;
                 case "TIDE POD":
                     alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play.")
@@ -45,17 +46,99 @@
                     alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play.")
                     closeWin()
                 default:
-                    alert("Welcome to land of Work In Progress " + playerName + "," + " in this land nothing ever gets finished! So, watch out for falling bricks.");
+                    alert("Welcome to land of confusion, " + playerName + ".");
             }
             var startGame = confirm("Are you ready to begin your adventure?");
             if (startGame) {
-               inTheBeginning();
+                inTheBeginning();
             } else {
                 alert("WHAT!!!! How could you do this? (╯°□°）╯︵ ┻━┻ Bye then! (◔_◔)");
             }
+
             function inTheBeginning() {
-                alert("This all began on a frightful night. The winds howled their wretched tune, and the clouds were gunmetal gray. The thuder cracked it's whip of lightning and sounded it's trumpet of thunder. That's when I heard the knock at the door.");
-                alert("*A small boy wakes up from his deep dreadful nightmare. The boy runs to his parents*")
+                alert("This all began on a frightful night. The winds howled their wretched tune, and the clouds were gunmetal gray. The sky cracked it's whip of lightning and sounded it's trumpet of thunder. That's when I heard the knock at the door.");
+                alert("A small boy wakes up from his deep dreadful nightmare. As the boy wakes up he realizes he's trapped in a dark room with only one light. The light is shining on a book. The book is called the book of stats. The boy opens the book and is shocked to see a manly man with a sword and a shield standing proud. The book has a small caption that says this is you!");
+                alert("You wake up from a deep sleep and realize you aren't in your home cave anymore. You're in a forest with only your trusty rusty shiv.");
+                var forestDirection = prompt("You can move east, west, south, or north.").toLowerCase;
+                switch (forestDirection) {
+                    case "east":
+                        alert("You start walking east.");
+                        forestEast();
+                    case "west":
+                        alert("You start walking west.");
+                        forestWest();
+                    case "north":
+                        alert("You start walking north.");
+                        forestNorth();
+                    case "south":
+                        alert("You start walking south.");
+                        forestSouth();
+                    case "inventory":
+                        invList();
+                    default:
+                        alert("For I doth not know what " + forestDirection + " is.");
+                        forestDirection();
+                }
+            }
+            var invList = function() {
+                alert("Bricks = " + inventory.Bricks +
+                    "\n sticks = " + inventory.Stick +
+                    "\n glowsticks = " + inventory.Glowsticks);
+            }
+
+            function forestEast() {
+                alert("As time passes on you notice the forest start to think. Your path suddenly becomes blocked. Oh no!");
+                var deeperForestdirection = prompt("You can only walk north or south.").toLowerCase;
+                switch (deeperForestdirection) {
+                    case "north":
+                        alert("You decide to venture north.");
+                        theSword();
+                    case "south":
+                        alert("You decide to venture south.");
+                        theMountains();
+                    case "inventory":
+                        invList();
+                    default:
+                        alert("For I doth not know what " + deeperForestdirection + " is.");
+                        forestEast();
+                }
+            }
+            //desert dragon add in later
+            function forestWest(){
+                alert("As you head west you discover a desert. You can't go that way though because of a desert storm that is brewing. You decide to turn around and head back to the location you started in.");
+                forestDirection2();
+            }
+
+            function forestNorth(){
+
+            }
+
+            function forestSouth(){
+
+            }
+            
+            function theSword() {
+            //An begger is fighting an old man.
+            alert("As you venture north you came to discover an old man being attacked by a begger.");
+            //if you fight off the begger with your rusty shiv the old man gives you a sword, 
+            //but if you run away you come back to discover the old man dead. You can take a small dagger from him.
+            var thedecisiontofightorrun = prompt("Something tells you to fight the begger, but another side of you wants you to run.").toLowerCase;
+            switch (thedecisiontofightorrun){
+                case "run":
+                    alert("You run away headng south.");
+                    fightingRun();
+            
+                }
+            }
+            //Went West at the start of the game, but discovered a desert storm so you headed back to your starting location.
+            function fightingRun(){
+                var fighting_Run = prompt("You come back to the place where you can only head north and south.");
+            }
+            function theMountains(){
+                
+            }
+            function forestDirection2(){
+                var forest_Direction2 = prompt("You come back to your starting location. You can head east, west, south, or north.")
             }
         }
 
