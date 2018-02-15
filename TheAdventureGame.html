@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -59,7 +59,7 @@
                 alert("This all began on a frightful night. The winds howled their wretched tune, and the clouds were gunmetal gray. The sky cracked it's whip of lightning and sounded it's trumpet of thunder. That's when I heard the knock at the door.");
                 alert("A small boy wakes up from his deep dreadful nightmare. As the boy wakes up he realizes he's trapped in a dark room with only one light. The light is shining on a book. The book is called the book of stats. The boy opens the book and is shocked to see a manly man with a sword and a shield standing proud. The book has a small caption that says this is you!");
                 alert("You wake up from a deep sleep and realize you aren't in your home cave anymore. You're in a forest with only your trusty rusty shiv.");
-                var forestDirection = prompt("You can move east, west, south, or north.").toLowerCase;
+                var forestDirection = prompt("You can move east, west, south, or north.").toLowerCase();
                 switch (forestDirection) {
                     case "east":
                         alert("You start walking east.");
@@ -88,7 +88,7 @@
 
             function forestEast() {
                 alert("As time passes on you notice the forest start to think. Your path suddenly becomes blocked. Oh no!");
-                var deeperForestdirection = prompt("You can only walk north or south.").toLowerCase;
+                var deeperForestdirection = prompt("You can only walk north, east, south.").toLowerCase();
                 switch (deeperForestdirection) {
                     case "north":
                         alert("You decide to venture north.");
@@ -96,6 +96,8 @@
                     case "south":
                         alert("You decide to venture south.");
                         theMountains();
+                    case "east":
+                        forestDirection2();
                     case "inventory":
                         invList();
                     default:
@@ -105,16 +107,18 @@
             }
             //desert dragon add in later
             function forestWest(){
-                alert("As you head west you discover a desert. You can't go that way though because of a desert storm that is brewing. You decide to turn around and head back to the location you started in.");
+                alert("As you head west, you discover a desert. You can't go that way though because of the desert storm that's brewing. You decide to turn around and head back to the location you started in.");
                 forestDirection2();
             }
 
             function forestNorth(){
-
+                alert("You begin to head north.");
+                theTundra(); 
             }
 
             function forestSouth(){
-
+                alert("you begin to head south.");
+                theJungle();
             }
             
             function theSword() {
@@ -127,18 +131,55 @@
                 case "run":
                     alert("You run away headng south.");
                     fightingRun();
-            
+                case "fight":
+                    alert("You fight the begger with your shiv. The begger gets scared and leaves.");
+                    theOldMan();
+                default:
+                    alert("For I doth not know what " + thedecisiontofightorrun + " is.");
+                    theSword();
                 }
             }
             //Went West at the start of the game, but discovered a desert storm so you headed back to your starting location.
             function fightingRun(){
-                var fighting_Run = prompt("You come back to the place where you can only head north and south.");
+                var fighting_Run = prompt("You come back to the place where you can only head north and south.").toLowerCase();
+                switch(fighting_Run){
+                    case "north":
+                        theSword2();
+                    case "south":
+                        forestWest(); 
+                }
             }
+            //This leads you to the mountains
             function theMountains(){
-                
+                alert("WIP");
             }
             function forestDirection2(){
-                var forest_Direction2 = prompt("You come back to your starting location. You can head east, west, south, or north.")
+                var forest_Direction2 = prompt("You come back to your starting location. You can head east, west, south, or north.").toLowerCase();
+                switch(forest_Direction2){
+                    case "east":
+                        forestEast();
+                    case "west":
+                        forestWest();
+                    case "north":
+                        forestNorth();
+                    case "south":
+                        forestSouth();
+                    default:
+                        alert("For I doth not know what " + forest_Direction2 + " is.");
+                }
+            }
+            function theTundra(){
+                alert("You head North, but as you're walking you realize that its starting to get really cold. You decide to turn around because your scared for your life.");
+                forestDirection2();
+            }
+            function theJungle(){
+                alert("WIP");
+            }
+            function theOldMan(){
+                alert("WIP");
+            }
+            function theSword2(){
+                alert("WIP");
             }
         }
 
