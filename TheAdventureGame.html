@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,7 +11,7 @@
     <script>
         //Javascript Object for an inventory
         var inventory = {
-            Stick: 0,
+            Sword: 0,
             Glowsticks: 0,
             Bricks: 0,
             Shiv: 1,
@@ -87,8 +87,8 @@
             }
 
             function forestEast() {
-                alert("As time passes on you notice the forest start to think. Your path suddenly becomes blocked. Oh no!");
-                var deeperForestdirection = prompt("You can only walk north, east, south.").toLowerCase();
+                alert("As time passes on you notice the forest start to thicken. Your path suddenly becomes blocked. Oh no!");
+                var deeperForestdirection = prompt("You can only walk north, east, or south.").toLowerCase();
                 switch (deeperForestdirection) {
                     case "north":
                         alert("You decide to venture north.");
@@ -106,56 +106,58 @@
                 }
             }
             //desert dragon add in later
-            function forestWest(){
+            function forestWest() {
                 alert("As you head west, you discover a desert. You can't go that way though because of the desert storm that's brewing. You decide to turn around and head back to the location you started in.");
                 forestDirection2();
             }
 
-            function forestNorth(){
+            function forestNorth() {
                 alert("You begin to head north.");
-                theTundra(); 
+                theTundra();
             }
 
-            function forestSouth(){
+            function forestSouth() {
                 alert("you begin to head south.");
                 theJungle();
             }
-            
+
             function theSword() {
-            //An begger is fighting an old man.
-            alert("As you venture north you came to discover an old man being attacked by a begger.");
-            //if you fight off the begger with your rusty shiv the old man gives you a sword, 
-            //but if you run away you come back to discover the old man dead. You can take a small dagger from him.
-            var thedecisiontofightorrun = prompt("Something tells you to fight the begger, but another side of you wants you to run.").toLowerCase;
-            switch (thedecisiontofightorrun){
-                case "run":
-                    alert("You run away headng south.");
-                    fightingRun();
-                case "fight":
-                    alert("You fight the begger with your shiv. The begger gets scared and leaves.");
-                    theOldMan();
-                default:
-                    alert("For I doth not know what " + thedecisiontofightorrun + " is.");
-                    theSword();
+                //An begger is fighting an old man.
+                alert("As you venture north you came to discover an old man being attacked by a goblin.");
+                //if you fight off the begger with your rusty shiv the old man gives you a sword, 
+                //but if you run away you come back to discover the old man dead. You can take a small dagger from him.
+                var thedecisiontofightorrun = prompt("Something tells you to fight the goblin, but another side of you wants you to run.").toLowerCase();
+                switch (thedecisiontofightorrun) {
+                    case "run":
+                        alert("You run away headng south.");
+                        fightingRun();
+                    case "fight":
+                        alert("You yell at the goblin to get off him! The goblin turns arounds and runs at you. You pull out your shiv and get ready to fight, but the goblin sees the shiv and runs away. You don't have time to chase after him. You look at the old man.");
+                        theOldMan();
+                    default:
+                        alert("For I doth not know what " + thedecisiontofightorrun + " is.");
+                        theSword();
                 }
             }
             //Went West at the start of the game, but discovered a desert storm so you headed back to your starting location.
-            function fightingRun(){
+            function fightingRun() {
                 var fighting_Run = prompt("You come back to the place where you can only head north and south.").toLowerCase();
-                switch(fighting_Run){
+                switch (fighting_Run) {
                     case "north":
                         theSword2();
                     case "south":
-                        forestWest(); 
+                        forestWest();
                 }
             }
             //This leads you to the mountains
-            function theMountains(){
-                alert("WIP");
+            function theMountains() {
+                alert("As you head south the enviornment starts to become rocky and the straight path turns into a huge incline. It's the mountains. You start the journey up the mountains.");
+                theGoblinHouse();
             }
-            function forestDirection2(){
+
+            function forestDirection2() {
                 var forest_Direction2 = prompt("You come back to your starting location. You can head east, west, south, or north.").toLowerCase();
-                switch(forest_Direction2){
+                switch (forest_Direction2) {
                     case "east":
                         forestEast();
                     case "west":
@@ -168,18 +170,45 @@
                         alert("For I doth not know what " + forest_Direction2 + " is.");
                 }
             }
-            function theTundra(){
-                alert("You head North, but as you're walking you realize that its starting to get really cold. You decide to turn around because your scared for your life.");
+
+            function theTundra() {
+                alert("As you're walking you realize that its starting to get really cold. You decide to turn around because you're scared for your life.");
                 forestDirection2();
             }
-            function theJungle(){
+
+            function theJungle() {
+                alert("As you're walking the climate starts to change. The air started to become humid. You start to get very hot. You've come to a jungle, but you can't enter the Jungle. There's a huge storm going on. So, you turn around and head back to your starting location.");
+                forestDirection2();
+            }
+
+            function theOldMan() {
+                alert("The old man is trying to get up, but he can't. He keeps falling to the ground. You run over to make sure he's okay. The old man tells you he doesn't have much time to live. He hands you a newly sharpened sword.");
+                inventory.Sword++;
+                alert("You have " + inventory.Sword + " sword.")
+                alert("The old man also tells you he's a swordsmith and that the goblin that attacked him had robbed him of his bricks. So, he tried to fight the goblin, but the goblin was stronger and easily overpowered the old man. As the life drains out of him his last words are avenge me. You have a wave of courage come over you. You're ready.");
+
+            }
+
+            function theSword2() {
                 alert("WIP");
             }
-            function theOldMan(){
+
+            function theGoblinHouse() {
                 alert("WIP");
             }
-            function theSword2(){
-                alert("WIP");
+
+            function ForestEastAfterFight() {
+                alert("You walk south out the fight. You came to a fork in the road.");
+                var Forest_EastAfterFight = prompt("You can only walk south or east.");
+                switch (Forest_EastAfterFight) {
+                    case "south":
+                        alert("You decide to venture south.");
+                        theMountains();
+                    case "east":
+                        forestDirection2();
+                    default:
+                        alert("For I doth not know what " + Forest_EastAfterFight + " is.");
+                }
             }
         }
 
