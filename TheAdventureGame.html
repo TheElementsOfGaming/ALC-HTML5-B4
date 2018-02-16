@@ -15,6 +15,8 @@
             Glowsticks: 0,
             Bricks: 0,
             Shiv: 1,
+            dagger:0,
+            health:0,
         }
         Start();
 
@@ -71,7 +73,6 @@
                         alert("You start walking north.");
                         forestNorth();
                     case "south":
-                        alert("You start walking south.");
                         forestSouth();
                     case "inventory":
                         invList();
@@ -172,13 +173,43 @@
             }
 
             function theTundra() {
-                alert("As you're walking you realize that its starting to get really cold. You decide to turn around because you're scared for your life.");
-                forestDirection2();
+                alert("As you're walking you realize that its starting to get really cold. You've entered a Tundra");
+                var ventureTheTundra = prompt("Do you want to continue to venture through the Tundra or do you want to head back to the start of the game?").toLowerCase();
+                if(ventureTheTundra = "yes"){
+                    alert("You continue to venture the Tundra. As time goes on though the clouds start to darken. Then out of nowhere snow starts to fall fast. You say to yourself, Oh no it's a blizarrd. I need to find somewhere to stay quickly." + "/n You begin to look around. You suddenly see a cave off in the distance.");
+                    var enterTheCave = prompt("Do you want to go to the cave or keep walking to find somewhere better?");
+                        if(enterTheCave = "Enter the cave"){
+                            alert("You make your way to the cave, but as you enter the cave something else is living inside of it." + "\n It's a bear!!");
+                                var theBear = prompt("The bear begins to run at you. What are you going to do?").toLowerCase();
+                                    if(theBear = "fight the bear"){
+                                            alert("You decide to fight the bear.");
+                                            alert("You pull out your shiv and attack the bear." +"\n The bear attacks first. He bites your arm. Blood starts to come rushing out of your arm. You scream in pain.");
+                                            inventory.health-20; 
+                                            alert("you have " + inventory.health + " health.");
+                                            alert("You use all your strength to stab the bear in the head. The bear falls over and dies.");
+                                            alert("You rip off parts of your shirt to make a bandage for your arm. The bandage becomes soaked with blood, but it works as a make shift bandage.");
+                                            alert("After your encounter with the bear you decide the tundra is worth it and begin to head back to the forest. Thankfully the blizzard stopped.");
+                                            forestDirection2();
+                                    }
+                                        else if(theBear = "run"){
+                                            alert("You decide to run away. The bear chases after you. This bear is faster then you run the snow. So, it easily catches up and eats you.");
+                                            dead();
+                                            }
+                                        }
+                        else if(enterTheCave = "Find somewhere better");{
+                            
+                        }
+                }
+                        
+                else if(ventureTheTundra = "no"){
+                    forestDirection2();
+                }
             }
 
             function theJungle() {
                 alert("As you're walking the climate starts to change. The air started to become humid. You start to get very hot. You've come to a jungle, but you can't enter the Jungle. There's a huge storm going on. So, you turn around and head back to your starting location.");
                 forestDirection2();
+                
             }
 
             function theOldMan() {
@@ -186,19 +217,25 @@
                 inventory.Sword++;
                 alert("You have " + inventory.Sword + " sword.")
                 alert("The old man also tells you he's a swordsmith and that the goblin that attacked him had robbed him of his bricks. So, he tried to fight the goblin, but the goblin was stronger and easily overpowered the old man. As the life drains out of him his last words are avenge me. You have a wave of courage come over you. You're ready.");
+                forestEastAfterFight();
 
             }
 
             function theSword2() {
-                alert("WIP");
+                alert("You walk back to where you first saw the old man being attacked, but this time. You see a corpse that looks like it's been beaten to a pulp." + "\n You walk up the body and all you find is a small dagger.");
+                inventory.dagger++;
+                alert("You have " + inventory.dagger + " dagger.");
+                alert("You suddenly become depressed and realize you could have helped this man. You vow to find the goblin that killed this old man and bring venagence to his name!");
+                forestEastDeadOldMan();
+                
             }
 
             function theGoblinHouse() {
                 alert("WIP");
             }
 
-            function ForestEastAfterFight() {
-                alert("You walk south out the fight. You came to a fork in the road.");
+            function forestEastAfterFight() {
+                alert("You walk south out of the fight. You came to a fork in the road.");
                 var Forest_EastAfterFight = prompt("You can only walk south or east.");
                 switch (Forest_EastAfterFight) {
                     case "south":
@@ -210,7 +247,22 @@
                         alert("For I doth not know what " + Forest_EastAfterFight + " is.");
                 }
             }
+            function forestEastDeadOldMan(){
+                alert("You walk south out the place where you found the dead old man. You come to a fork in the road.");
+                var forest_EastDeadOldMan = prompt("You can only walk south or east.");
+                switch(forest_EastDeadOldMan){
+                    case "south":
+                        alert("you decide to venture south.");
+                        theMountains();
+                    case "east":
+                        forestDirection2();
+                    default:
+                        alert("For I doth not know what " + forest_EastDeadOldMan + " is.")
+                }
+            }
+            function dead(){
+                alert("You died. :( Game Over!" + "\n hit the restart browser page button to play again.");
+            }
         }
-
     </script>
 </body>
