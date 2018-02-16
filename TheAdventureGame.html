@@ -16,7 +16,7 @@
             Bricks: 0,
             Shiv: 1,
             dagger:0,
-            health:0,
+            health:5,
         }
         Start();
 
@@ -70,7 +70,6 @@
                         alert("You start walking west.");
                         forestWest();
                     case "north":
-                        alert("You start walking north.");
                         forestNorth();
                     case "south":
                         forestSouth();
@@ -78,7 +77,7 @@
                         invList();
                     default:
                         alert("For I doth not know what " + forestDirection + " is.");
-                        forestDirection();
+                        forestDirection3();
                 }
             }
             var invList = function() {
@@ -169,43 +168,49 @@
                         forestSouth();
                     default:
                         alert("For I doth not know what " + forest_Direction2 + " is.");
+                        forest_Direction2();
                 }
             }
 
             function theTundra() {
-                alert("As you're walking you realize that its starting to get really cold. You've entered a Tundra");
+                alert("As you're walking you realize that its starting to get really cold. You've entered a Tundra.");
                 var ventureTheTundra = prompt("Do you want to continue to venture through the Tundra or do you want to head back to the start of the game?").toLowerCase();
-                if(ventureTheTundra = "yes"){
-                    alert("You continue to venture the Tundra. As time goes on though the clouds start to darken. Then out of nowhere snow starts to fall fast. You say to yourself, Oh no it's a blizarrd. I need to find somewhere to stay quickly." + "/n You begin to look around. You suddenly see a cave off in the distance.");
+                switch(ventureTheTundra){
+                    case "venture the tundra":
+                    alert("You continue to venture through the Tundra. As time goes on though the clouds start to darken. Then out of nowhere snow starts to fall fast. You say to yourself, Oh no it's a blizarrd. I need to find somewhere to stay quickly." + "/n You begin to look around. You suddenly see a cave off in the distance.");
                     var enterTheCave = prompt("Do you want to go to the cave or keep walking to find somewhere better?");
-                        if(enterTheCave = "Enter the cave"){
-                            alert("You make your way to the cave, but as you enter the cave something else is living inside of it." + "\n It's a bear!!");
+                        switch(enterTheCave){
+                            case "go inside the cave":
+                                alert("You make your way to the cave, but as you enter the cave something else is living inside of it." + "\n It's a bear!!");
                                 var theBear = prompt("The bear begins to run at you. What are you going to do?").toLowerCase();
-                                    if(theBear = "fight the bear"){
+                                    switch(theBear){
+                                        case "fight the bear":
                                             alert("You decide to fight the bear.");
                                             alert("You pull out your shiv and attack the bear." +"\n The bear attacks first. He bites your arm. Blood starts to come rushing out of your arm. You scream in pain.");
-                                            inventory.health-20; 
+                                            inventory.health--; 
                                             alert("you have " + inventory.health + " health.");
                                             alert("You use all your strength to stab the bear in the head. The bear falls over and dies.");
                                             alert("You rip off parts of your shirt to make a bandage for your arm. The bandage becomes soaked with blood, but it works as a make shift bandage.");
                                             alert("After your encounter with the bear you decide the tundra is worth it and begin to head back to the forest. Thankfully the blizzard stopped.");
                                             forestDirection2();
-                                    }
-                                        else if(theBear = "run"){
+                                        case "run":
                                             alert("You decide to run away. The bear chases after you. This bear is faster then you run the snow. So, it easily catches up and eats you.");
                                             dead();
+                                        default:
+                                            alert("For I doth not know what" + theBear + " is.");
                                             }
-                                        }
-                        else if(enterTheCave = "Find somewhere better");{
-                            
+                            case "find somewhere better":            
+                            alert("You continue to walk, but the blizzard starts to get worse. You just give up. So, you just give up. You sit on the ground and die.");
+                            dead();
+                            default:
+                        alert("for I doth not know what " + enterTheCave +" is.");
+                        enterTheCave();
                         }
-                }
-                        
-                else if(ventureTheTundra = "no"){
-                    forestDirection2();
-                }
+                    default:
+                        alert("For I doth not know what " + ventureTheTundra + " is.")
+                        theTundra();
+                    }
             }
-
             function theJungle() {
                 alert("As you're walking the climate starts to change. The air started to become humid. You start to get very hot. You've come to a jungle, but you can't enter the Jungle. There's a huge storm going on. So, you turn around and head back to your starting location.");
                 forestDirection2();
@@ -263,6 +268,28 @@
             function dead(){
                 alert("You died. :( Game Over!" + "\n hit the restart browser page button to play again.");
             }
+            function forestDirection3(){
+                alert("You wake up from a deep sleep and realize you aren't in your home cave anymore. You're in a forest with only your trusty rusty shiv.");
+                var forestDirection = prompt("You can move east, west, south, or north.").toLowerCase();
+                switch (forestDirection) {
+                    case "east":
+                        alert("You start walking east.");
+                        forestEast();
+                    case "west":
+                        alert("You start walking west.");
+                        forestWest();
+                    case "north":
+                        forestNorth();
+                    case "south":
+                        forestSouth();
+                    case "inventory":
+                        invList();
+                    default:
+                        alert("For I doth not know what " + forestDirection + " is.");
+                        forestDirection3();
+            }
         }
+    }
+
     </script>
 </body>
