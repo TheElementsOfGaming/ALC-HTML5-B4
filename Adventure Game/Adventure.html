@@ -33,16 +33,16 @@
                     alert("Welcome to land of Work In Progress, lazy. In this land nothing ever gets finished! So, watch out for falling bricks.");
                     break;
                 case "TIDE POD":
-                    alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play.")
+                    alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play.");
                     closeWin();
                 case "TIDEPOD":
-                    alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play.")
+                    alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play.");
                     closeWin();
                 case "FIDGET SPINNER":
-                    alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play.")
+                    alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play.");
                     closeWin();
                 case "FIDGETSPINNER":
-                    alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play.")
+                    alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play.");
                     closeWin()
                 default:
                     alert("Welcome to land of Work In Progress " + playerName + "," + " in this land nothing ever gets finished! So, watch out for falling bricks.");
@@ -64,7 +64,7 @@
                     insideTheBuilding();
                 case "run away":
                     runAway();
-                case "enter forest":
+                case "enter the forest":
                     theForest();
                 default:
                     alert("I'm a computer built for certain commands. I do not understand " + unfinished_Building);
@@ -97,7 +97,7 @@
         }
 
         function runAway() {
-            var run_Away = prompt("You ran away!" + " Game Over!")
+            alert("You ran away!" + " Game Over!");
             closeWin();
         }
 
@@ -160,9 +160,9 @@
             //added stick to inventory
             inventory.Stick++;
             //Informs user of how many sticks they have
-            alert("You have " + inventory.Stick + " stick.")
+            alert("You have " + inventory.Stick + " stick.");
             theDoor2();
-
+        }
             function theDoor() {
                 alert("Alright, I guess I'll just move over then so you can go through this door. *the merchant moves over and reveals a door behind him*");
                 var the_Door = prompt("Do you want to enter the door?").toLowerCase();
@@ -191,7 +191,7 @@
             }
 
             function theDoor2() {
-                alert("Now onto your adventure. \n *the merchant moves over and reveals a door behind him*")
+                alert("Now onto your adventure. \n *the merchant moves over and reveals a door behind him*");
                 var the_Door2 = prompt("Do you want to enter the door?").toLowerCase();
                 switch (the_Door2) {
                     case "yes":
@@ -290,13 +290,13 @@
             function theFirstBrick() {
                 alert("As you're walking down the cavern you hear something crumple and fall. \n Before you can realize what happened a brick hits you in the head and kills you.");
                 alert("Game over!");
-                closeWin()
+                closeWin();
             }
 
             function missedFirstBrick() {
                 alert("As you're walking down the cavern you hear something crumple and fall. \n You just barely miss getting hit by a brick. congrats!");
                 inventory.Bricks++;
-                alert("You have " + inventory.Bricks + " brick.")
+                alert("You have " + inventory.Bricks + " brick.");
             }
 
             function theKingdom() {
@@ -306,15 +306,15 @@
             }
 
             function blueThing() {
-                alert("You wake up inside of hut. You see something furry and blue. \n The blue thing suddenly turns his head and walks up. He asks, Do you want to hear a story?")
+                alert("You wake up inside of hut. You see something furry and blue. \n The blue thing suddenly turns his head and walks up to you. He asks, Do you want to hear a story?");
                 var decisionToRunOrListen = prompt("Do you want to hear the story or run away?").toLowerCase();
-                switch (decisionToRunOrListenecisionToRunOrListen) {
-                    case "listen to story":
+                switch (decisionToRunOrListen) {
+                    case "listen to the story":
                         alert("It all began on one frightful night. The wind was howling its wretched tune, and the cloud were dark like the night sky. \n I had just finished dinner when a there was a loud bang at my door.");
                         theKingdom();
                     case "run away":
                         alert("You run out the door and back into the forest. The blue thing chases after you angrily.");
-                        alert("You see the blue beast still chasing after you, but you know deep down that he's slowly catching up to you.");
+                        alert("You take a break to quickly check behind you. You see the blue beast still far away. He's still chasing after you, but you know deep down that he's slowly catching up to you.");
                         blueThingCatchesUp();
                     default:
                         alert("I'm a computer built for certain things I don't understand " + decisionToRunOrListen);
@@ -323,13 +323,14 @@
             }
 
             function blueThingCatchesUp() {
-                alert("So, funny story I had this whole big idea for this game that it was going to be huge, but I ran out of time. So, this is the end of the game.")
+                alert("So, funny story I had this whole big idea for this game that it was going to be huge, but I ran out of time. So, this is the end of the game.");
                 alert("I am working on a new game though. :)");
             }
             function theForest() {
-                alert("WIP");
+                alert("You decide to head into the forest, but as you get deeper into the forest you get knocked out by a blue thing.");
+                blueThing();
             }
-
+        
     </script>
 </body>
 
