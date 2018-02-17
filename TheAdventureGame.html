@@ -552,7 +552,7 @@
                                 bottomOfTheMountains();
                             case "yes":
                                 alert("You were warned.");
-                                theDragon();
+                                theDragon3();
                             default:
                                 alert("For I doth not know what " + noItems + " is.");
                                 theTopOfTheMountains();
@@ -567,7 +567,7 @@
                                 bottomOfTheMountains();
                             case "yes":
                                 alert("You were warned.");
-                                theDragon();
+                                theDragon3();
                             default:
                                 alert("For I doth not know what " + no_Items1 + " is.");
                                 theTopOfTheMountains();
@@ -582,7 +582,7 @@
                                 bottomOfTheMountains();
                             case "yes":
                                 alert("You were warned.");
-                                theDragon();
+                                theDragon3();
                             default:
                                 alert("For I doth not know what " + no_Items2 + " is.");
                                 theTopOfTheMountains();
@@ -603,7 +603,7 @@
                                 bottomOfTheMountains();
                             case "yes":
                                 alert("You were warned.");
-                                theDragon2();
+                                theDragon4();
                             default:
                                 alert("For I doth not know what " + no_Items4 + " is.");
                                 theTopOfTheMountains();
@@ -618,7 +618,7 @@
                                 bottomOfTheMountains();
                             case "yes":
                                 alert("You were warned.");
-                                theDragon2();
+                                theDragon4();
                             default:
                                 alert("For I doth not know what " + no_Items5 + " is.");
                                 theTopOfTheMountains();
@@ -632,7 +632,7 @@
                                 bottomOfTheMountains();
                             case "yes":
                                 alert("You were warned.");
-                                theDragon2();
+                                theDragon4();
                             default:
                                 alert("For I doth not know what " + no_Items6 + " is.");
                                 theTopOfTheMountains();
@@ -650,7 +650,16 @@
                         theDragonVisit++;
                         aWinnerIsYou();
                     }
-
+                    function theDragon3() {
+                        alert("The dragon is not in the game yet.");
+                        theDragonVisit++;
+                        aWinnerIsYou();
+                    }
+                    function theDragon4() {
+                        alert("The dragon is not in the game yet.");
+                        theDragonVisit++;
+                        aWinnerIsYou();
+                    }
                     function bottomOfTheMountains() {
                         alert("At the bottom of the mountains you come to the same path where you can turn north, east, south.");
                         var bottom_OfTheMountains = prompt("Which way do you want to walk? north, south, or east?")
@@ -759,6 +768,7 @@
                 }
                 function aWinnerIsYou(){
                     alert("You win!! :) Congrats!");              
+                    alert("Developer's note: The error at the end is on purpose.");
                     thisisonpurpose();
                 }
             }
