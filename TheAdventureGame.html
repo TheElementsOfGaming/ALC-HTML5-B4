@@ -12,6 +12,7 @@
         //Javascript Object for an inventory
         var inventory = {
             Sword: 0,
+            sticks: 0,
             Glowsticks: 0,
             Bricks: 0,
             Shiv: 1,
@@ -30,6 +31,9 @@
         }
         var theOldMansDeath = {
             dead: 0,
+        }
+        var theDragonVisit = {
+            hi: 0,
         }
         Start();
 
@@ -97,12 +101,16 @@
                         forestDirection();
                 }
             }
-            var invList = function() {
-                alert("Bricks = " + inventory.Bricks +
-                    "\n sticks = " + inventory.Stick +
-                    "\n glowsticks = " + inventory.Glowsticks);
-            }
-
+            function invList() {
+            var inv_List = alert("Bricks = " + inventory.Bricks +
+                    "\n sticks = " + inventory.sticks +
+                    "\n glowsticks = " + inventory.Glowsticks + 
+                    "\n swords = " + inventory.Sword +
+                    "\n shivs = " + inventory.Shiv + 
+                    "\n daggers = " + inventory.dagger +
+                    "\n keys = " + inventory.goblinkey + 
+                    "\n sets of armor = " + inventory.armor);
+                }
             function forestEast() {
                 alert("As time passes on you notice the forest start to thicken. Your path suddenly becomes blocked. Oh no!");
                 var forest_East = prompt("You can only walk north, east, or south.").toLowerCase();
@@ -177,7 +185,7 @@
                         fighting_Run();
                     default:
                         alert("For I doth not know what " + fighting_Run + " is.");
-                        fighting_Run();
+                        fightingRun();
                 }
             }
             //This leads you to the mountains
@@ -190,7 +198,7 @@
                 var forest_Direction2 = prompt("You come back to your starting location. You can head east, west, south, or north.").toLowerCase();
                 switch (forest_Direction2) {
                     case "east":
-                        forestEast();
+                        forestEast2();
                     case "west":
                         forestWest();
                     case "north":
@@ -202,7 +210,7 @@
                         forest_Direction2();
                     default:
                         alert("For I doth not know what " + forest_Direction2 + " is.");
-                        forest_Direction2();
+                        forestDirection2();
                 }
             }
 
@@ -311,6 +319,9 @@
                         theTopOfTheMountains();
                     case "go up to the mountains":
                         theTopOfTheMountains();
+                    case "inventory":
+                        invList();
+                        theGoblinOrDragon();
                     default:
                         alert("For I doth not know what " + the_Goblin_Or_Dragon + " is.");
                         theGoblinOrDragon();
@@ -323,7 +334,15 @@
                     case "open the chest":
                         alert("You open the chest to find a suit of armor. You put it on. You decide there's nothing else of importance here. So, you leave.");
                         inventory.armor++;
+                        playerlife.health++;
+                        playerlife.health++;
+                        playerlife.health++;
+                        playerlife.health++;
+                        playerlife.health++;
+                        playerlife.health++;
                         alert("You have " + inventory.armor + " set of armor.");
+                        alert("Your health has been increased by 6!");
+                        alert("Your health is " + playerlife.health + ".");
                         backToTheMountains();
                     case "sit on the table":
                         alert("Good job! You sat on the table.");
@@ -331,6 +350,9 @@
                     case "lie in the bed":
                         alert("You decide not to lie in the bed. There could be bed bugs in it.");
                         theHouseDecision3();
+                    case "inventory":
+                        invList();
+                        theHouseDecision();
                     default:
                         alert("For I doth not know what " + the_HouseDecision + " is.");
                         theHouseDecision();
@@ -373,10 +395,10 @@
                             forestSouth();
                         case "inventory":
                             invList();
-                            forest_Direction4();
+                            forestDirection4();
                         default:
                             alert("For I doth not know what " + forest_Direction4 + " is.");
-                            forest_Direction4();
+                            forestDirection4();
                     }
                 }
 
@@ -385,7 +407,7 @@
                     switch (forest_East2) {
                         case "north":
                             alert("There's nothing here except for the old man's dead body. You walk south away from the body.");
-                            forest_East2();
+                            forestEast2();
                         case "south":
                             alert("You decide to venture south.");
                             theMountains();
@@ -411,7 +433,7 @@
                             forestDirection2();
                         case "inventory":
                             invList();
-                            forest_EastDeadOldMan();
+                            forestEastDeadOldMan();
                         default:
                             alert("For I doth not know what " + forest_EastDeadOldMan + " is.")
                             forest_EastDeadOldMan();
@@ -420,7 +442,6 @@
 
                 function dead() {
                     alert("You died. :(" + "\nGame Over!");
-                    close();
                 }
 
                 function forestDirection3() {
@@ -439,6 +460,7 @@
                             forestSouth();
                         case "inventory":
                             invList();
+                            forestDirection3();
                         default:
                             alert("For I doth not know what " + forest_Direction3 + " is.");
                             forestDirection3();
@@ -452,7 +474,15 @@
                         case "open the chest":
                             alert("You open the chest to find a suit of armor. You put it on. You decide there's nothing else of importance here. So, you leave.");
                             inventory.armor++;
+                            playerlife.health++;
+                            playerlife.health++;
+                            playerlife.health++;
+                            playerlife.health++;
+                            playerlife.health++;
+                            playerlife.health++;
                             alert("You have " + inventory.armor + " set of armor");
+                            alert("Your health has been increased by 6!");
+                            alert("Your health is " + playerlife.health + ".");
                             theTopOfTheMountains();
                         case "sit on the table":
                             alert("Good job! You sat on the table.");
@@ -460,6 +490,8 @@
                         case "lie in the bed":
                             alert("You decide not to lie in the bed. There could be bed bugs in it.");
                             theHouseDecision3();
+                        case "inventory":
+                            theHouseDecision2();
                         default:
                             alert("For I doth not know what " + theHouse_Decision2 + " is.");
                             theHouseDecision2();
@@ -473,13 +505,23 @@
                         case "open the chest":
                             alert("You open the chest to find a suit of armor. You put it on. You decide there's nothing else of importance here. So, you leave.");
                             inventory.armor++;
+                            playerlife.health++;
+                            playerlife.health++;
+                            playerlife.health++;
+                            playerlife.health++;
+                            playerlife.health++;
+                            playerlife.health++;
                             alert("You have " + inventory.armor + " set of armor");
-                            theTopOfTheMountains();
+                            alert("Your health has been increased by 6!");
+                            alert("Your health is " + playerlife.health + ".");
+                            backToTheMountains();
                         case "sit on the table":
                             alert("Good job! You sat on the table.");
                             theHouseDecision2();
                         case "lie in the bed":
                             alert("You decide not to lie in the bed. There could be bed bugs in it.");
+                            theHouseDecision3();
+                        case "inventory":
                             theHouseDecision3();
                         default:
                             alert("For I doth not know what " + theHouse_Decision3 + " is.")
@@ -493,95 +535,120 @@
                 }
 
                 function theTopOfTheMountains() {
-                    if (inventory.sword === 1 && inventory.armor === 1) {
+                    if (inventory.Sword === 1 && inventory.armor === 1) 
+                    {
                         alert("As you approach the top of the mountain a voice in your head says, you're ready.");
                         theDragon();
-                    } else if (inventory.sword === 0 && inventory.armor === 0) {
+                    } 
+                    else if (theDragonVisit.hi === 1){
+                        close();
+                    }
+                    else if (inventory.Sword === 0 && inventory.armor === 0) 
+                    {
                         var noItems = prompt("As you approach the top of the mountain a voice in your head says, you're not ready. Are you sure you want to fight the boss?").toLowerCase();
                         switch (noItems) {
                             case "no":
                                 alert("You head back to the bottom of the mountains.");
                                 bottomOfTheMountains();
-                            case "Yes":
+                            case "yes":
                                 alert("You were warned.");
                                 theDragon();
                             default:
                                 alert("For I doth not know what " + noItems + " is.");
                                 theTopOfTheMountains();
                         }
-                    } else if (inventory.sword === 1 && inventory.armor === 0) {
+                    } 
+                    else if (inventory.Sword === 1 && inventory.armor === 0) 
+                    {
                         var no_Items1 = prompt("As you approach the top of the mountain a voice in your head says, you're not ready. Are you sure you want to fight the boss?").toLowerCase();
                         switch (no_Items1) {
                             case "no":
                                 alert("You head back to the bottom of the mountains.");
                                 bottomOfTheMountains();
-                            case "Yes":
+                            case "yes":
                                 alert("You were warned.");
                                 theDragon();
                             default:
                                 alert("For I doth not know what " + no_Items1 + " is.");
                                 theTopOfTheMountains();
                         }
-                    } else if (inventory.sword === 0 && inventory.armor === 1) {
+                    } 
+                    else if (inventory.Sword === 0 && inventory.armor === 1) 
+                    {
                         var no_Items2 = prompt("As you approach the top of the mountain a voice in your head says, you're not ready. Are you sure you want to fight the boss?").toLowerCase();
                         switch (no_Items2) {
                             case "no":
                                 alert("You head back to the bottom of the mountains.");
                                 bottomOfTheMountains();
-                            case "Yes":
+                            case "yes":
                                 alert("You were warned.");
                                 theDragon();
                             default:
                                 alert("For I doth not know what " + no_Items2 + " is.");
                                 theTopOfTheMountains();
                         }
-                    } else if (inventory.dagger === 1 && inventory.armor === 1) {
+                    } 
+                    else if (inventory.dagger === 1 && inventory.armor === 1) 
+                    {
                         alert("As you approach the top of the mountain a voice in your head says, you're ready.");
-                        theDragon();
+                        theDragon2();
 
-                    } else if (inventory.dagger === 1 && inventory.armor === 0) {
+                    } 
+                    else if (inventory.dagger === 1 && inventory.armor === 0) 
+                    {
                         var no_Items4 = prompt("As you approach the top of the mountain a voice in your head says, you're not ready. Are you sure you want to fight the boss?").toLowerCase();
                         switch (no_Items4) {
                             case "no":
                                 alert("You head back to the bottom of the mountains.");
                                 bottomOfTheMountains();
-                            case "Yes":
+                            case "yes":
                                 alert("You were warned.");
-                                theDragon();
+                                theDragon2();
                             default:
                                 alert("For I doth not know what " + no_Items4 + " is.");
                                 theTopOfTheMountains();
                         }
-                    } else if (inventory.dagger === 0 && inventory.armor === 1) {
+                    } 
+                    else if (inventory.dagger === 0 && inventory.armor === 1) 
+                    {
                         var no_Items5 = prompt("As you approach the top of the mountain a voice in your head says, you're not ready. Are you sure you want to fight the boss?").toLowerCase();
                         switch (no_Items5) {
                             case "no":
                                 alert("You head back to the bottom of the mountains.");
                                 bottomOfTheMountains();
-                            case "Yes":
+                            case "yes":
                                 alert("You were warned.");
-                                theDragon();
+                                theDragon2();
                             default:
                                 alert("For I doth not know what " + no_Items5 + " is.");
                                 theTopOfTheMountains();
                         }
-                    } else if (inventory.dagger === 0 && inventory.armor === 0) {
+                    } 
+                    else if (inventory.dagger === 0 && inventory.armor === 0) {
                         var no_Items6 = prompt("As you approach the top of the mountain a voice in your head says, you're not ready. Are you sure you want to fight the boss?").toLowerCase();
                         switch (no_Items6) {
                             case "no":
                                 alert("You head back to the bottom of the mountains.");
                                 bottomOfTheMountains();
-                            case "Yes":
+                            case "yes":
                                 alert("You were warned.");
-                                theDragon();
+                                theDragon2();
                             default:
                                 alert("For I doth not know what " + no_Items6 + " is.");
                                 theTopOfTheMountains();
                         }
                     }
-
+                }
+            
                     function theDragon() {
-                        alert("WIP");
+                        alert("The dragon is not in the game yet.");
+                        theDragonVisit.hi++;
+                        aWinnerIsYou();
+                    }
+                    function theDragon2() {
+                        alert("The dragon is not in the game yet.");
+                        theDragonVisit++;
+                        aWinnerIsYou();
                     }
 
                     function bottomOfTheMountains() {
@@ -594,6 +661,9 @@
                                 theMountains();
                             case "east":
                                 forestDirection5();
+                            case"inventory":
+                                invList();
+                                bottomOfTheMountains();
                             default:
                                 alert("For I doth not understand what" + bottom_OfTheMountainsOfTheMountains + " is.")
                                 bottomOfTheMountains();
@@ -636,10 +706,10 @@
                                 forestSouth();
                             case "inventory":
                                 invList();
-                                forest_Direction4();
+                                forestDirection4();
                             default:
                                 alert("For I doth not know what " + forest_Direction5 + " is.");
-                                forest_Direction5();
+                                forestDirection5();
                         }
                     }
 
@@ -664,7 +734,7 @@
 
                     function death() {
                         if (playerlife.health === 0) {
-                            dead();
+                        dead();
                         }
                     }
 
@@ -685,9 +755,11 @@
                             default:
                                 alert("For I doth not know what " + forest_East4 + " is.");
                                 forestEast4();
-                        }
                     }
                 }
-        }
+                function aWinnerIsYou(){
+                    alert("You win!! :) Congrats!");              
+                    }
+            }
     </script>
 </body>
