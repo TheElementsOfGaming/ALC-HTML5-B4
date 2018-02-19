@@ -7,7 +7,7 @@
 
 <body>
     <hl>Adventure Game v1.0</hl>
-    <p>Made by: The Elements Of Gaming(Kyler Draper)</p>
+    <p>Made by: Kyler Draper</p>
     <script>
         //Javascript Object for an inventory
         var inventory = {
@@ -24,7 +24,7 @@
             health: 5,
         }
         var dragonlife = {
-            health: 4,
+            health: 15,
         }
         var goblinLife = {
             health: 2,
@@ -32,8 +32,14 @@
         var theOldMansDeath = {
             dead: 0,
         }
-        var theDragonVisit = {
-            hi: 0,
+        var sword = {
+            taken: 0,
+        }
+        var deadoldman = {
+            death: 0,
+        }
+        var sword2 = {
+            taken2: 0,
         }
         Start();
 
@@ -42,15 +48,15 @@
             switch (playerName) {
                 case "IDK":
                     alert("Wow you're original. ヽ(ಠ_ಠ)ノ How can you not come up with a random name? It's not that hard, just type in random letters if you have to.");
-                    alert("Welcome to land of Confusion, lazy.");
+                    alert("Welcome to World of Confusion, lazy.");
                     break;
                 case "I DON'T KNOW":
                     alert("Wow you're original. ヽ(ಠ_ಠ)ノ How can you not come up with a random name? It's not that hard, just type in random letters if you have to.");
-                    alert("Welcome to land of confusion, lazy.");
+                    alert("Welcome to World of confusion, lazy.");
                     break;
                 case "IDON'TKNOW":
                     alert("Wow you're original. ヽ(ಠ_ಠ)ノ How can you not come up with a random name? It's not that hard, just type in random letters if you have to.");
-                    alert("Welcome to land of confusion.");
+                    alert("Welcome to World of confusion.");
                     break;
                 case "TIDE POD":
                     alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play.")
@@ -65,7 +71,7 @@
                     alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play.")
                     closeWin()
                 default:
-                    alert("Welcome to land of confusion, " + playerName + ".");
+                    alert("Welcome to World of confusion, " + playerName + ".");
             }
             var startGame = confirm("Are you ready to begin your adventure?");
             if (startGame) {
@@ -80,6 +86,7 @@
                 alert("You wake up from a deep sleep and realize you aren't in your home cave anymore. You're in a forest with only your trusty rusty shiv.");
                 forestDirection();
             }
+
             function forestDirection() {
                 var forest_Direction = prompt("You can move east, west, south, or north.").toLowerCase();
                 switch (forest_Direction) {
@@ -101,16 +108,18 @@
                         forestDirection();
                 }
             }
+
             function invList() {
-            var inv_List = alert("Bricks = " + inventory.Bricks +
+                var inv_List = alert("Bricks = " + inventory.Bricks +
                     "\n sticks = " + inventory.sticks +
-                    "\n glowsticks = " + inventory.Glowsticks + 
+                    "\n glowsticks = " + inventory.Glowsticks +
                     "\n swords = " + inventory.Sword +
-                    "\n shivs = " + inventory.Shiv + 
+                    "\n shivs = " + inventory.Shiv +
                     "\n daggers = " + inventory.dagger +
-                    "\n keys = " + inventory.goblinkey + 
+                    "\n keys = " + inventory.goblinkey +
                     "\n sets of armor = " + inventory.armor);
-                }
+            }
+
             function forestEast() {
                 alert("As time passes on you notice the forest start to thicken. Your path suddenly becomes blocked. Oh no!");
                 var forest_East = prompt("You can only walk north, east, or south.").toLowerCase();
@@ -148,41 +157,65 @@
             }
 
             function theSword() {
-                //An begger is fighting an old man.
-                alert("As you venture north you came to discover an old man being attacked by a goblin.");
-                //if you fight off the begger with your rusty shiv the old man gives you a sword, 
-                //but if you run away you come back to discover the old man dead. You can take a small dagger from him.
-                var thedecisiontofightorrun = prompt("Something tells you to fight the goblin, but another side of you wants you to run.").toLowerCase();
-                switch (thedecisiontofightorrun) {
-                    case "run":
-                        alert("You run away heading south.");
-                        fightingRun();
-                    case "fight":
-                        alert("You yell at the goblin to get off him! The goblin turns arounds and runs at you. You pull out your shiv and get ready to fight, but the goblin sees the shiv and runs away. You don't have time to chase after him. You look at the old man.");
-                        theOldMan();
-                    case "fight the goblin":
-                        alert("You yell at the goblin to get off him! The goblin turns arounds and runs at you. You pull out your shiv and get ready to fight, but the goblin sees the shiv and runs away. You don't have time to chase after him. You look at the old man.");
-                        theOldMan();
-                    case "inventory":
-                        invList();
-                        theSword();
-                    default:
-                        alert("For I doth not know what " + thedecisiontofightorrun + " is.");
-                        theSword();
+                if (sword.taken === 0 && sword2.taken2 === 0) {
+                    //An begger is fighting an old man.
+                    alert("As you venture north you came to discover an old man being attacked by a goblin.");
+                    //if you fight off the begger with your rusty shiv the old man gives you a sword, 
+                    //but if you run away you come back to discover the old man dead. You can take a small dagger from him.
+                    var thedecisiontofightorrun = prompt("Something tells you to fight the goblin, but another side of you wants you to run.").toLowerCase();
+                    switch (thedecisiontofightorrun) {
+                        case "run away":
+                            alert("You run away heading south.");
+                            sword.taken++;
+                            deadoldman.death++;
+                            fightingRun();
+                        case "run":
+                            alert("You run away heading south.");
+                            sword.taken++;
+                            deadoldman.death++;
+                            fightingRun();
+                        case "fight":
+                            alert("You yell at the goblin to get off him! The goblin turns arounds and runs at you. You pull out your shiv and get ready to fight, but the goblin sees the shiv and runs away. You don't have time to chase after him. You look at the old man.");
+                            sword.taken++;
+                            sword.taken2++;
+                            theOldMan();
+                        case "fight the goblin":
+                            alert("You yell at the goblin to get off him! The goblin turns arounds and runs at you. You pull out your shiv and get ready to fight, but the goblin sees the shiv and runs away. You don't have time to chase after him. You look at the old man.");
+                            sword.taken++;
+                            sword.taken2++;
+                            theOldMan();
+                        case "inventory":
+                            invList();
+                            theSword();
+                        default:
+                            alert("For I doth not know what " + thedecisiontofightorrun + " is.");
+                            theSword();
                     }
+                } 
+                else if (deadoldman.death === 1 && sword.taken === 1){
+                    theSword2();
                 }
+                else if (sword2.taken2 === 1 && sword.taken === 1) {
+                    theGoblin();
+                }
+                else {
+                    theGoblin();
+                }
+            }
 
             //Went West at the start of the game, but discovered a desert storm so you headed back to your starting location.
             function fightingRun() {
-                var fighting_Run = prompt("You come back to the place where you can only head north and south.").toLowerCase();
+                var fighting_Run = prompt("You come back to the place where you can only head north, east, or south.").toLowerCase();
                 switch (fighting_Run) {
                     case "north":
-                        theSword2();
+                        theSword();
                     case "south":
-                        forestWest();
+                        theMountains();
                     case "inventory":
                         invList();
                         fighting_Run();
+                    case "east":
+                        forestDirection6();
                     default:
                         alert("For I doth not know what " + fighting_Run + " is.");
                         fightingRun();
@@ -221,7 +254,7 @@
                     case "venture through the tundra":
                         enterTheCave();
                     case "head back to the start of the game":
-                        forestDirection2();
+                        forestDirection7();
                     case "venture the tundra":
                         enterTheCave();
                     case "inventory":
@@ -264,13 +297,25 @@
                         alert("You rip off parts of your shirt to make a bandage for your arm. The bandage becomes soaked with blood, but it works as a make shift bandage.");
                         alert("After your encounter with the bear you decide the Tundra isn't worth it and begin to head back to the forest. Thankfully the blizzard stopped.");
                         forestDirection2();
+                     case "fight":
+                        alert("You decide to fight the bear.");
+                        alert("You pull out your shiv and attack the bear." + "\nThe bear attacks first. He bites your arm. Blood starts to come rushing out of your arm. You scream in pain.");
+                        playerlife.health--;
+                        alert("you have " + playerlife.health + " health.");
+                        alert("You use all your strength to stab the bear in the head. The bear falls over and dies.");
+                        alert("You rip off parts of your shirt to make a bandage for your arm. The bandage becomes soaked with blood, but it works as a make shift bandage.");
+                        alert("After your encounter with the bear you decide the Tundra isn't worth it and begin to head back to the forest. Thankfully the blizzard stopped.");
+                        forestDirection2();
                     case "run":
+                        alert("You decide to run away. The bear chases after you. This bear is faster then you running in the snow. So, it easily catches up and eats you.");
+                        dead();
+                    case "run away":
                         alert("You decide to run away. The bear chases after you. This bear is faster then you running in the snow. So, it easily catches up and eats you.");
                         dead();
                     case "inventory":
                         invList();
                     default:
-                        alert("For I doth not know what" + the_Bear + " is.");
+                        alert("For I doth not know what " + the_Bear + " is.");
                         theBear();
                 }
             }
@@ -292,10 +337,11 @@
             }
 
             function theSword2() {
-                alert("You walk back to where you first saw the old man being attacked, but this time. You see a corpse that looks like it's been beaten to a pulp." + "\n You walk up the body and all you find is a small dagger.");
+                alert("You walk back to where you first saw the old man being attacked, but this time. You see a corpse that looks like it's been beaten to a pulp." + "\nYou walk up to the body and all you find is a small dagger.");
                 inventory.dagger++;
                 alert("You have " + inventory.dagger + " dagger.");
                 alert("You suddenly become depressed and realize you could have helped this man. You vow to find the goblin that killed this old man and bring venagence to his name!");
+                sword.taken++;
                 forestEastDeadOldMan();
 
             }
@@ -307,9 +353,8 @@
                     case "open the door":
                         if (inventory.goblinkey === 1) {
                             alert("You unlock the door to the house with the key you got from the goblin. It appears that the house seems to be mostly empty except for a bed, a table, and a large chest partly hidden under the bed.");
-                            theHouseDecision(); 
-                        } 
-                        else {
+                            theHouseDecision();
+                        } else {
                             alert("The door is locked!");
                             theGoblinOrDragon();
                         }
@@ -359,10 +404,10 @@
                 }
             }
 
-                function forestEastAfterFight() {
-                    alert("You walk south out of the fight. You came to a fork in the road.");
-                    var Forest_EastAfterFight = prompt("You can only walk north, south, or east.");
-                    if(theOldMansDeath.dead === 1){
+            function forestEastAfterFight() {
+                alert("You walk south out of the fight. You came to a fork in the road.");
+                var Forest_EastAfterFight = prompt("You can only walk north, south, or east.");
+                if (theOldMansDeath.dead === 1) {
                     switch (Forest_EastAfterFight) {
                         case "north":
                             alert("There's nothing here except the old man's dead body.");
@@ -378,399 +423,510 @@
                         default:
                             alert("For I doth not know what " + Forest_EastAfterFight + " is.");
                             forestEastAfterFight();
-                        }
                     }
-                }
-
-                function forestDirection4() {
-                    var forest_Direction4 = prompt("You come back to your starting location. You can head east, west, south, or north.").toLowerCase();
-                    switch (forest_Direction4) {
-                        case "east":
-                            forestEast2();
-                        case "west":
-                            forestWest();
-                        case "north":
-                            forestNorth();
-                        case "south":
-                            forestSouth();
-                        case "inventory":
-                            invList();
-                            forestDirection4();
-                        default:
-                            alert("For I doth not know what " + forest_Direction4 + " is.");
-                            forestDirection4();
-                    }
-                }
-
-                function forestEast2() {
-                    var forest_East2 = prompt("You can only walk north, east, or south.").toLowerCase();
-                    switch (forest_East2) {
-                        case "north":
-                            alert("There's nothing here except for the old man's dead body. You walk south away from the body.");
-                            forestEast2();
-                        case "south":
-                            alert("You decide to venture south.");
-                            theMountains();
-                        case "east":
-                            forestDirection2();
-                        case "inventory":
-                            invList();
-                            forestEast();
-                        default:
-                            alert("For I doth not know what " + forest_East2 + " is.");
-                            forestEast2();
-                    }
-                }
-
-                function forestEastDeadOldMan() {
-                    alert("You walk south out of the place where you found the dead old man. You come to a fork in the road.");
-                    var forest_EastDeadOldMan = prompt("You can only walk south or east.");
-                    switch (forest_EastDeadOldMan) {
-                        case "south":
-                            alert("you decide to venture south.");
-                            theMountains();
-                        case "east":
-                            forestDirection2();
-                        case "inventory":
-                            invList();
-                            forestEastDeadOldMan();
-                        default:
-                            alert("For I doth not know what " + forest_EastDeadOldMan + " is.")
-                            forest_EastDeadOldMan();
-                    }
-                }
-
-                function dead() {
-                    alert("You died. :(" + "\nGame Over!");
-                }
-
-                function forestDirection3() {
-                    alert("You wake up from a deep sleep and realize you aren't in your home cave anymore. You're in a forest with only your trusty rusty shiv.");
-                    var forest_Direction3 = prompt("You can move east, west, south, or north.").toLowerCase();
-                    switch (forestDirection3) {
-                        case "east":
-                            alert("You start walking east.");
-                            forestEast();
-                        case "west":
-                            alert("You start walking west.");
-                            forestWest();
-                        case "north":
-                            forestNorth();
-                        case "south":
-                            forestSouth();
-                        case "inventory":
-                            invList();
-                            forestDirection3();
-                        default:
-                            alert("For I doth not know what " + forest_Direction3 + " is.");
-                            forestDirection3();
-                    }
-                }
-
-                function theHouseDecision2() {
-                    alert("You get off the table and go back to looking at the house.");
-                    var theHouse_Decision2 = prompt("Would you like to open the chest, sit on the table, or lie in the bed?");
-                    switch (theHouse_Decision2) {
-                        case "open the chest":
-                            alert("You open the chest to find a suit of armor. You put it on. You decide there's nothing else of importance here. So, you leave.");
-                            inventory.armor++;
-                            playerlife.health++;
-                            playerlife.health++;
-                            playerlife.health++;
-                            playerlife.health++;
-                            playerlife.health++;
-                            playerlife.health++;
-                            alert("You have " + inventory.armor + " set of armor");
-                            alert("Your health has been increased by 6!");
-                            alert("Your health is " + playerlife.health + ".");
-                            theTopOfTheMountains();
-                        case "sit on the table":
-                            alert("Good job! You sat on the table.");
-                            theHouseDecision2();
-                        case "lie in the bed":
-                            alert("You decide not to lie in the bed. There could be bed bugs in it.");
-                            theHouseDecision3();
-                        case "inventory":
-                            theHouseDecision2();
-                        default:
-                            alert("For I doth not know what " + theHouse_Decision2 + " is.");
-                            theHouseDecision2();
-                    }
-                }
-
-                function theHouseDecision3() {
-                    alert("You continue searching the house for an supplies.");
-                    var theHouse_Decision3 = prompt("Would you like to open the chest, sit on the table, or lie in the bed?");
-                    switch (theHouse_Decision3) {
-                        case "open the chest":
-                            alert("You open the chest to find a suit of armor. You put it on. You decide there's nothing else of importance here. So, you leave.");
-                            inventory.armor++;
-                            playerlife.health++;
-                            playerlife.health++;
-                            playerlife.health++;
-                            playerlife.health++;
-                            playerlife.health++;
-                            playerlife.health++;
-                            alert("You have " + inventory.armor + " set of armor");
-                            alert("Your health has been increased by 6!");
-                            alert("Your health is " + playerlife.health + ".");
-                            backToTheMountains();
-                        case "sit on the table":
-                            alert("Good job! You sat on the table.");
-                            theHouseDecision2();
-                        case "lie in the bed":
-                            alert("You decide not to lie in the bed. There could be bed bugs in it.");
-                            theHouseDecision3();
-                        case "inventory":
-                            theHouseDecision3();
-                        default:
-                            alert("For I doth not know what " + theHouse_Decision3 + " is.")
-                    }
-                }
-
-
-                function backToTheMountains() {
-                    alert("You're back to the fork in the road on the mountains. You decide you don't need to go back into the house so you head up to the top of the mountain");
-                    theTopOfTheMountains();
-                }
-
-                function theTopOfTheMountains() {
-                    if (inventory.Sword === 1 && inventory.armor === 1) 
-                    {
-                        alert("As you approach the top of the mountain a voice in your head says, you're ready.");
-                        theDragon();
-                    } 
-                    else if (theDragonVisit.hi === 1){
-                        close();
-                    }
-                    else if (inventory.Sword === 0 && inventory.armor === 0) 
-                    {
-                        var noItems = prompt("As you approach the top of the mountain a voice in your head says, you're not ready. Are you sure you want to fight the boss?").toLowerCase();
-                        switch (noItems) {
-                            case "no":
-                                alert("You head back to the bottom of the mountains.");
-                                bottomOfTheMountains();
-                            case "yes":
-                                alert("You were warned.");
-                                theDragon3();
-                            default:
-                                alert("For I doth not know what " + noItems + " is.");
-                                theTopOfTheMountains();
-                        }
-                    } 
-                    else if (inventory.Sword === 1 && inventory.armor === 0) 
-                    {
-                        var no_Items1 = prompt("As you approach the top of the mountain a voice in your head says, you're not ready. Are you sure you want to fight the boss?").toLowerCase();
-                        switch (no_Items1) {
-                            case "no":
-                                alert("You head back to the bottom of the mountains.");
-                                bottomOfTheMountains();
-                            case "yes":
-                                alert("You were warned.");
-                                theDragon3();
-                            default:
-                                alert("For I doth not know what " + no_Items1 + " is.");
-                                theTopOfTheMountains();
-                        }
-                    } 
-                    else if (inventory.Sword === 0 && inventory.armor === 1) 
-                    {
-                        var no_Items2 = prompt("As you approach the top of the mountain a voice in your head says, you're not ready. Are you sure you want to fight the boss?").toLowerCase();
-                        switch (no_Items2) {
-                            case "no":
-                                alert("You head back to the bottom of the mountains.");
-                                bottomOfTheMountains();
-                            case "yes":
-                                alert("You were warned.");
-                                theDragon3();
-                            default:
-                                alert("For I doth not know what " + no_Items2 + " is.");
-                                theTopOfTheMountains();
-                        }
-                    } 
-                    else if (inventory.dagger === 1 && inventory.armor === 1) 
-                    {
-                        alert("As you approach the top of the mountain a voice in your head says, you're ready.");
-                        theDragon2();
-
-                    } 
-                    else if (inventory.dagger === 1 && inventory.armor === 0) 
-                    {
-                        var no_Items4 = prompt("As you approach the top of the mountain a voice in your head says, you're not ready. Are you sure you want to fight the boss?").toLowerCase();
-                        switch (no_Items4) {
-                            case "no":
-                                alert("You head back to the bottom of the mountains.");
-                                bottomOfTheMountains();
-                            case "yes":
-                                alert("You were warned.");
-                                theDragon4();
-                            default:
-                                alert("For I doth not know what " + no_Items4 + " is.");
-                                theTopOfTheMountains();
-                        }
-                    } 
-                    else if (inventory.dagger === 0 && inventory.armor === 1) 
-                    {
-                        var no_Items5 = prompt("As you approach the top of the mountain a voice in your head says, you're not ready. Are you sure you want to fight the boss?").toLowerCase();
-                        switch (no_Items5) {
-                            case "no":
-                                alert("You head back to the bottom of the mountains.");
-                                bottomOfTheMountains();
-                            case "yes":
-                                alert("You were warned.");
-                                theDragon4();
-                            default:
-                                alert("For I doth not know what " + no_Items5 + " is.");
-                                theTopOfTheMountains();
-                        }
-                    } 
-                    else if (inventory.dagger === 0 && inventory.armor === 0) {
-                        var no_Items6 = prompt("As you approach the top of the mountain a voice in your head says, you're not ready. Are you sure you want to fight the boss?").toLowerCase();
-                        switch (no_Items6) {
-                            case "no":
-                                alert("You head back to the bottom of the mountains.");
-                                bottomOfTheMountains();
-                            case "yes":
-                                alert("You were warned.");
-                                theDragon4();
-                            default:
-                                alert("For I doth not know what " + no_Items6 + " is.");
-                                theTopOfTheMountains();
-                        }
-                    }
-                }
-            
-                    function theDragon() {
-                        alert("The dragon is not in the game yet.");
-                        theDragonVisit.hi++;
-                        aWinnerIsYou();
-                    }
-                    function theDragon2() {
-                        alert("The dragon is not in the game yet.");
-                        theDragonVisit++;
-                        aWinnerIsYou();
-                    }
-                    function theDragon3() {
-                        alert("The dragon is not in the game yet.");
-                        theDragonVisit++;
-                        aWinnerIsYou();
-                    }
-                    function theDragon4() {
-                        alert("The dragon is not in the game yet.");
-                        theDragonVisit++;
-                        aWinnerIsYou();
-                    }
-                    function bottomOfTheMountains() {
-                        alert("At the bottom of the mountains you come to the same path where you can turn north, east, south.");
-                        var bottom_OfTheMountains = prompt("Which way do you want to walk? north, south, or east?")
-                        switch (bottom_OfTheMountains) {
-                            case "north":
-                                theGoblin();
-                            case "south":
-                                theMountains();
-                            case "east":
-                                forestDirection5();
-                            case"inventory":
-                                invList();
-                                bottomOfTheMountains();
-                            default:
-                                alert("For I doth not understand what" + bottom_OfTheMountainsOfTheMountains + " is.")
-                                bottomOfTheMountains();
-                        }
-                    }
-
-                    function theGoblin() {
-                        if (theOldMansDeath.dead === 1) {
-                            alert("As you walk towards the north to see the dead old man's body it's no longer there, but a goblin is and he doesn't look happy.");
-                            alert("The goblin screams and runs at you." + " \nAs you pull out your shiv, the goblin keeps coming. He's not backing down this time.");
-                            alert("As the goblin gets to you, you attack first. You slash open the goblins arm.");
-                            goblinLife.health--;
-                            alert("The goblin's life is " + goblinLife.health + "." +
-                                "\nYour health is " + playerlife.health + ".");
-                            alert("The goblin claws deep into your arm. You scream in agony, but you continue to fight.");
-                            playerlife.health--;
-                            alert("The goblin's life is " + goblinLife.health + "." +
-                                "\nYour health is " + playerlife.health + ".");
-                            alert("You stab the goblin in the chest. The goblin falls over and dies. Victory is yours." + "\nThe goblin drops a key. It must unlock that door on the mountain!");
-                            inventory.goblinkey++;
-                            alert("You have " + inventory.goblinkey + " key.");
-                            alert("You walk south away from the goblin's dead body.");
-                            forestEast4();
-                        } 
-                        else {
-                            theSword();
-                        }
-                    }
-
-                    function forestDirection5() {
-                        var forest_Direction5 = prompt("You come back to your starting location. You can head east, west, south, or north.").toLowerCase();
-                        switch (forest_Direction5) {
-                            case "east":
-                                forestEast3();
-                            case "west":
-                                forestWest();
-                            case "north":
-                                forestNorth();
-                            case "south":
-                                forestSouth();
-                            case "inventory":
-                                invList();
-                                forestDirection4();
-                            default:
-                                alert("For I doth not know what " + forest_Direction5 + " is.");
-                                forestDirection5();
-                        }
-                    }
-
-                    function forestEast3() {
-                        var forest_East3 = prompt("You can only walk north, east, or south.").toLowerCase();
-                        switch (forest_East3) {
-                            case "north":
-                                theGoblin();
-                            case "south":
-                                alert("You decide to venture south.");
-                                theMountains();
-                            case "east":
-                                forestDirection2();
-                            case "inventory":
-                                invList();
-                                forestEast();
-                            default:
-                                alert("For I doth not know what " + forest_East3 + " is.");
-                                forestEast3();
-                        }
-                    }
-
-                    function death() {
-                        if (playerlife.health === 0) {
-                        dead();
-                        }
-                    }
-
-                    function forestEast4() {
-                        var forest_East4 = prompt("You can only walk north, east, or south.").toLowerCase();
-                        switch (forest_East4) {
-                            case "north":
-                                alert("There's northing here except for the goblin's dead body. You walk south away from the body.");
-                                forestEast4();
-                            case "south":
-                                alert("You decide to venture south back up the mountains.");
-                                theGoblinOrDragon();
-                            case "east":
-                                forestDirection2();
-                            case "inventory":
-                                invList();
-                                forestEast();
-                            default:
-                                alert("For I doth not know what " + forest_East4 + " is.");
-                                forestEast4();
-                    }
-                }
-                function aWinnerIsYou(){
-                    alert("You win!! :) Congrats!");              
-                    alert("Developer's note: The error at the end is on purpose.");
-                    thisisonpurpose();
                 }
             }
+
+            function forestDirection4() {
+                var forest_Direction4 = prompt("You come back to your starting location. You can head east, west, south, or north.").toLowerCase();
+                switch (forest_Direction4) {
+                    case "east":
+                        forestEast2();
+                    case "west":
+                        forestWest();
+                    case "north":
+                        forestNorth();
+                    case "south":
+                        forestSouth();
+                    case "inventory":
+                        invList();
+                        forestDirection4();
+                    default:
+                        alert("For I doth not know what " + forest_Direction4 + " is.");
+                        forestDirection4();
+                }
+            }
+
+            function forestEast2() {
+                var forest_East2 = prompt("You can only walk north, east, or south.").toLowerCase();
+                switch (forest_East2) {
+                    case "north":
+                        alert("There's nothing here except for the old man's dead body. You walk south away from the body.");
+                        forestEast2();
+                    case "south":
+                        alert("You decide to venture south.");
+                        theMountains();
+                    case "east":
+                        forestDirection2();
+                    case "inventory":
+                        invList();
+                        forestEast();
+                    default:
+                        alert("For I doth not know what " + forest_East2 + " is.");
+                        forestEast2();
+                }
+            }
+
+            function forestEastDeadOldMan() {
+                alert("You walk south out of the place where you found the dead old man. You come to a fork in the road.");
+                var forest_EastDeadOldMan = prompt("You can only walk south or east.");
+                switch (forest_EastDeadOldMan) {
+                    case "south":
+                        alert("you decide to venture south.");
+                        theMountains();
+                    case "east":
+                        forestDirection2();
+                    case "inventory":
+                        invList();
+                        forestEastDeadOldMan();
+                    default:
+                        alert("For I doth not know what " + forest_EastDeadOldMan + " is.")
+                        forestEastDeadOldMan();
+                }
+            }
+
+            function dead() {
+                alert("You died. :(" + "\nGame Over!");
+                thisisonpurpose();
+            }
+
+            function forestDirection3() {
+                alert("You wake up from a deep sleep and realize you aren't in your home cave anymore. You're in a forest with only your trusty rusty shiv.");
+                var forest_Direction3 = prompt("You can move east, west, south, or north.").toLowerCase();
+                switch (forestDirection3) {
+                    case "east":
+                        alert("You start walking east.");
+                        forestEast();
+                    case "west":
+                        alert("You start walking west.");
+                        forestWest();
+                    case "north":
+                        forestNorth();
+                    case "south":
+                        forestSouth();
+                    case "inventory":
+                        invList();
+                        forestDirection3();
+                    default:
+                        alert("For I doth not know what " + forest_Direction3 + " is.");
+                        forestDirection3();
+                }
+            }
+
+            function theHouseDecision2() {
+                alert("You get off the table and go back to looking at the house.");
+                var theHouse_Decision2 = prompt("Would you like to open the chest, sit on the table, or lie in the bed?");
+                switch (theHouse_Decision2) {
+                    case "open the chest":
+                        alert("You open the chest to find a suit of armor. You put it on. You decide there's nothing else of importance here. So, you leave.");
+                        inventory.armor++;
+                        playerlife.health++;
+                        playerlife.health++;
+                        playerlife.health++;
+                        playerlife.health++;
+                        playerlife.health++;
+                        playerlife.health++;
+                        alert("You have " + inventory.armor + " set of armor");
+                        alert("Your health has been increased by 6!");
+                        alert("Your health is " + playerlife.health + ".");
+                        theTopOfTheMountains();
+                    case "sit on the table":
+                        alert("Good job! You sat on the table.");
+                        theHouseDecision2();
+                    case "lie in the bed":
+                        alert("You decide not to lie in the bed. There could be bed bugs in it.");
+                        theHouseDecision3();
+                    case "inventory":
+                        theHouseDecision2();
+                    default:
+                        alert("For I doth not know what " + theHouse_Decision2 + " is.");
+                        theHouseDecision2();
+                }
+            }
+
+            function theHouseDecision3() {
+                alert("You continue searching the house for an supplies.");
+                var theHouse_Decision3 = prompt("Would you like to open the chest, sit on the table, or lie in the bed?");
+                switch (theHouse_Decision3) {
+                    case "open the chest":
+                        alert("You open the chest to find a suit of armor. You put it on. You decide there's nothing else of importance here. So, you leave.");
+                        inventory.armor++;
+                        playerlife.health++;
+                        playerlife.health++;
+                        playerlife.health++;
+                        playerlife.health++;
+                        playerlife.health++;
+                        playerlife.health++;
+                        alert("You have " + inventory.armor + " set of armor");
+                        alert("Your health has been increased by 6!");
+                        alert("Your health is " + playerlife.health + ".");
+                        backToTheMountains();
+                    case "sit on the table":
+                        alert("Good job! You sat on the table.");
+                        theHouseDecision2();
+                    case "lie in the bed":
+                        alert("You decide not to lie in the bed. There could be bed bugs in it.");
+                        theHouseDecision3();
+                    case "inventory":
+                        theHouseDecision3();
+                    default:
+                        alert("For I doth not know what " + theHouse_Decision3 + " is.")
+                }
+            }
+
+
+            function backToTheMountains() {
+                alert("You're back to the fork in the road on the mountains. You decide you don't need to go back into the house and you also decide you don't need to head back down the mountains. So, you head up to the top of the mountains.");
+                theTopOfTheMountains();
+            }
+
+            function theTopOfTheMountains() {
+                if (inventory.Sword === 1 && inventory.armor === 1) {
+                    alert("As you approach the top of the mountain a voice in your head says, you're ready.");
+                    theDragon();
+                } 
+                else if (inventory.Sword === 0 && inventory.armor === 0) {
+                    var noItems = prompt("As you approach the top of the mountain a voice in your head says, you're not ready. Are you sure you want to fight the boss?").toLowerCase();
+                    switch (noItems) {
+                        case "no":
+                            alert("You head back to the bottom of the mountains.");
+                            bottomOfTheMountains();
+                        case "yes":
+                            alert("You were warned.");
+                            theDragon2();
+                        default:
+                            alert("For I doth not know what " + noItems + " is.");
+                            theTopOfTheMountains();
+                    }
+                } 
+                else if (inventory.Sword === 1 && inventory.armor === 0) {
+                    var no_Items1 = prompt("As you approach the top of the mountain a voice in your head says, you're not ready. Are you sure you want to fight the boss?").toLowerCase();
+                    switch (no_Items1) {
+                        case "no":
+                            alert("You head back to the bottom of the mountains.");
+                            bottomOfTheMountains();
+                        case "yes":
+                            alert("You were warned.");
+                            theDragon2();
+                        default:
+                            alert("For I doth not know what " + no_Items1 + " is.");
+                            theTopOfTheMountains();
+                    }
+                } 
+                else if (inventory.dagger === 1 && inventory.armor === 1) {
+                    alert("As you approach the top of the mountain a voice in your head says, you're ready.");
+                    theDragon();
+
+                } 
+                else if (inventory.dagger === 1 && inventory.armor === 0) {
+                    var no_Items4 = prompt("As you approach the top of the mountain a voice in your head says, you're not ready. Are you sure you want to fight the boss?").toLowerCase();
+                    switch (no_Items4) {
+                        case "no":
+                            alert("You head back to the bottom of the mountains.");
+                            bottomOfTheMountains();
+                        case "yes":
+                            alert("You were warned.");
+                            theDragon2();
+                        default:
+                            alert("For I doth not know what " + no_Items4 + " is.");
+                            theTopOfTheMountains();
+                    }
+                } 
+                else if (inventory.dagger === 0 && inventory.armor === 0) {
+                    var no_Items6 = prompt("As you approach the top of the mountain a voice in your head says, you're not ready. Are you sure you want to fight the boss?").toLowerCase();
+                    switch (no_Items6) {
+                        case "no":
+                            alert("You head back to the bottom of the mountains.");
+                            bottomOfTheMountains();
+                        case "yes":
+                            alert("You were warned.");
+                            theDragon2();
+                        default:
+                            alert("For I doth not know what " + no_Items6 + " is.");
+                            theTopOfTheMountains();
+                    }
+                }
+            }
+
+            function theDragon() {
+                alert("As you reach the top of the mountains you know you've reached your final fate. You see the one thing you hoped you would never have to face. It's a dragon.");
+                alert("The dragon stares at you and says so I see you've come prepared. That will do you no good though. For I am a mighty dragon you're no match for me. Before you can react the dragon pushes off the ground and claws you. Thankfully the dragon only scratches your armor. Without it you'd be a dead man for sure.");
+                alert("The dragon's health is: " + dragonlife.health + "." +
+                    "\nYour health is: " + playerlife.health + ".");
+                alert("The dragon comes around for another attack. As the dragon is about to attack you, you hit the dragon with your sword. You cut off one of the dragon's legs and the dragon screams!");
+                dragonlife.health--;
+                dragonlife.health--;
+                dragonlife.health--;
+                alert("The dragon's health is: " + dragonlife.health + "." +
+                    "\nYour health is: " + playerlife.health + ".");
+                alert("The dragon is now extremely angry and begins to use every bit of strength it has to end your life.");
+                alert("As the dragon comes around for another strike, you swipe your sword to early and the dragon dodges the attack. The dragon then picks you with its one leg and throws you to the ground. The dragon broke your right arm. Luckily you're left handed!");
+                playerlife.health--;
+                playerlife.health--;
+                playerlife.health--;
+                playerlife.health--;
+                alert("The dragon's health is: " + dragonlife.health + "." +
+                    "\nYour health is: " + playerlife.health + ".");
+                alert("As the dragon comes around again for another assault you use the strength of what feels like 10 lions to attack the dragon. You  cut off one of the dragon's wings! This attack crippled the dragon extremely. The dragon screams and falls to the ground.");
+                dragonlife.health--;
+                dragonlife.health--;
+                dragonlife.health--;
+                dragonlife.health--;
+                dragonlife.health--;
+                alert("The dragon's health is: " + dragonlife.health + "." +
+                    "\nYour health is: " + playerlife.health + ".");
+                alert("You decide to take full advantage of the situation and move in to end the dragon, but the dragon still has some strength left in him. He swipes at you with his other sharp wing. This attack cuts through your arm and leaves a giant gash on your body. Blood starts to rush out, but you want to end this fight even if it means the end of your life.");
+                playerlife.health--;
+                playerlife.health--;
+                playerlife.health--;
+                playerlife.health--;
+                alert("The dragon's health is: " + dragonlife.health + "." +
+                    "\nYour health is: " + playerlife.health + ".");
+                alert("As the dragon tries to attack you, you dodge all of it's blows. You then catch the dragon off gaurd and cut off it's second leg. the dragon howls.");
+                dragonlife.health--;
+                dragonlife.health--;
+                dragonlife.health--;
+                alert("The dragon's health is: " + dragonlife.health + "." +
+                    "\nYour health is: " + playerlife.health + ".");
+                alert("Before you end the dragon's life the dragon says to you, you put up a mighty fight young warrior. I accept my fate of death. A single tear falls down the dragon's face before you cut off the dragon's head.");
+                dragonlife.health--;
+                dragonlife.health--;
+                dragonlife.health--;
+                dragonlife.health--;
+                alert("The dragon's health is: " + dragonlife.health + "." +
+                    "\nYour health is: " + playerlife.health + ".");
+                alert("You've defeated the dragon and beat the game! Congrats!");
+                alert("You move away from the book and realize what has just happened. You entered the World of Confusion a loser and left a victorious warrior, but what happens next is what you would never expect. The young boy falls over to the floor and dies. Suddenly a man comes out from the shadows and says the mission has been accomplished sir. I'm heading back to base now. Suddenly a door opens and the man walks out.");
+                aWinnerIsYou();
+            }
+
+            function theDragon2() {
+                alert("As you reach the top of the mountains you know you've reached your final fate. You see the one thing you hoped you would never have to face. It's a dragon.");
+                alert("The dragon stares at you and says what are you a fool? You're not prepared for this fight. Get ready to die!! The dragon pushes off the ground and claws you. Without armor the dragon rips you up. You're bleeding everywhere.");
+                if (playerlife.health === 5) {
+                    playerlife.health--;
+                    playerlife.health--;
+                    playerlife.health--;
+                    playerlife.health--;
+                    alert("The dragon's health is: " + dragonlife.health + "." +
+                        "\nYour health is: " + playerlife.health + ".");
+                    alert("You barely manage to hold on as the dragon comes in for another attack. Without a sword you try to punch the dragon, but it has no effect. The dragon land the killing blow ending your life.");
+                    dragonlife.health--;
+                    dragonlife.health--;
+                    dragonlife.health--;
+                    alert("The dragon's health is: " + dragonlife.health + ".");
+                    dead();
+                } else if (playerlife === 4) {
+                    playerlife.health--;
+                    playerlife.health--;
+                    playerlife.health--;
+                    alert("You barely manage to hold on as the dragon comes in for another attack. Without a sword you try to punch the dragon, but it has no effect. The dragon land the killing blow ending your life.");
+                    dragonlife.health--;
+                    dragonlife.health--;
+                    dragonlife.health--;
+                    alert("The dragon's health is: " + dragonlife.health + ".");
+                    alert("You tried to be a tough guy and fight without any armor. Sadly though, you died a weak boy.");
+                    dead();
+                } else if (playerlife === 6) {
+                    playerlife.health--;
+                    playerlife.health--;
+                    playerlife.health--;
+                    playerlife.health--;
+                    playerlife.health--;
+                    alert("You barely manage to hold on as the dragon comes in for another attack. Without a sword you try to punch the dragon, but it has no effect. The dragon land the killing blow ending your life.");
+                    dragonlife.health--;
+                    dragonlife.health--;
+                    dragonlife.health--;
+                    alert("The dragon's health is: " + dragonlife.health + ".");
+                    alert("You tried to be a tough guy and fight without any armor. Sadly though, you died a weak boy.");
+                    dead();
+                }
+            }
+
+            
+            function bottomOfTheMountains() {
+                alert("At the bottom of the mountains you come to the same path where you can turn north, east, south.");
+                var bottom_OfTheMountains = prompt("Which way do you want to walk? north, south, or east?")
+                switch (bottom_OfTheMountains) {
+                    case "north":
+                        theSword();
+                    case "south":
+                        theMountains();
+                    case "east":
+                        forestDirection5();
+                    case "inventory":
+                        invList();
+                        bottomOfTheMountains();
+                    default:
+                        alert("For I doth not understand what" + bottom_OfTheMountainsOfTheMountains + " is.")
+                        bottomOfTheMountains();
+                }
+            }
+
+            function theGoblin() {
+                if (theOldMansDeath.dead === 1) {
+                    alert("As you walk towards the north to see the dead old man's body it's no longer there, but a goblin is and he doesn't look happy.");
+                    alert("The goblin screams and runs at you." + " \nAs you pull out your shiv, the goblin keeps coming. He's not backing down this time.");
+                    alert("As the goblin gets to you, you attack first. You slash open the goblins arm.");
+                    goblinLife.health--;
+                    alert("The goblin's life is " + goblinLife.health + "." +
+                        "\nYour health is " + playerlife.health + ".");
+                    alert("The goblin claws deep into your arm. You scream in agony, but you continue to fight.");
+                    playerlife.health--;
+                    alert("The goblin's life is " + goblinLife.health + "." +
+                        "\nYour health is " + playerlife.health + ".");
+                    alert("You stab the goblin in the chest. The goblin falls over and dies. Victory is yours." + "\nThe goblin drops a key. It must unlock that door on the mountain!");
+                    inventory.goblinkey++;
+                    alert("You have " + inventory.goblinkey + " key.");
+                    alert("You walk south away from the goblin's dead body.");
+                    forestEast4();
+                } else {
+                    theSword();
+                }
+            }
+
+            function forestDirection5() {
+                var forest_Direction5 = prompt("You come back to your starting location. You can head east, west, south, or north.").toLowerCase();
+                switch (forest_Direction5) {
+                    case "east":
+                        forestEast3();
+                    case "west":
+                        forestWest();
+                    case "north":
+                        forestNorth();
+                    case "south":
+                        forestSouth();
+                    case "inventory":
+                        invList();
+                        forestDirection5();
+                    default:
+                        alert("For I doth not know what " + forest_Direction5 + " is.");
+                        forestDirection5();
+                }
+            }
+
+            function forestDirection6() {
+                var forest_Direction6 = prompt("You come back to your starting location. You can head east, west, south, or north.").toLowerCase();
+                switch (forest_Direction6) {
+                    case "east":
+                        forestEast5();
+                    case "west":
+                        forestWest();
+                    case "north":
+                        forestNorth();
+                    case "south":
+                        forestSouth();
+                    case "inventory":
+                        invList();
+                        forestDirection6();
+                    default:
+                        alert("For I doth not know what " + forest_Direction6 + " is.");
+                        forestDirection6();
+                }
+            }
+
+            function forestEast3() {
+                var forest_East3 = prompt("You can only walk north, east, or south.").toLowerCase();
+                switch (forest_East3) {
+                    case "north":
+                        theSword();
+                    case "south":
+                        alert("You decide to venture south.");
+                        theMountains();
+                    case "east":
+                        forestDirection2();
+                    case "inventory":
+                        invList();
+                        forestEast3();
+                    default:
+                        alert("For I doth not know what " + forest_East3 + " is.");
+                        forestEast3();
+                }
+            }
+
+            function forestEast5() {
+                var forest_East5 = prompt("You can only walk north, east, or south.").toLowerCase();
+                switch (forest_East5) {
+                    case "north":
+                        theSword();
+                    case "south":
+                        alert("You decide to venture south.");
+                        theMountains();
+                    case "east":
+                        forestDirection2();
+                    case "inventory":
+                        invList();
+                        forestEast5();
+                    default:
+                        alert("For I doth not know what " + forest_East5 + " is.");
+                        forestEast5();
+                }
+            }
+
+            function forestEast4() {
+                var forest_East4 = prompt("You can only walk north, east, or south.").toLowerCase();
+                switch (forest_East4) {
+                    case "north":
+                        alert("There's northing here except for the goblin's dead body. You walk south away from the body.");
+                        forestEast4();
+                    case "south":
+                        alert("You decide to venture south back up the mountains.");
+                        theGoblinOrDragon();
+                    case "east":
+                        forestDirection2();
+                    case "inventory":
+                        invList();
+                        forest_East4();
+                    default:
+                        alert("For I doth not know what " + forest_East4 + " is.");
+                        forestEast4();
+                }
+            }
+
+            function aWinnerIsYou() {
+                alert("You suddenly jolt awake and realize you were just dreaming, but as you start to collect your thoughts you realize you're in a dark room. The only light is a small lamp hanging from the ceiling. The light is shining on a book titled, The Book of Stats. As you walk up to the book you open it. There's only one page in it. The one page has a drawing of a manly man with a sword and a shield standing proud. There's also a caption on the page that reads, This is you!");
+                alert("You win! Thanks for playing my game!")
+                thisisonpurpose();
+            }
+            
+            function forestDirection7() {
+                var forest_Direction7 = prompt("You come back to your starting location. You can head east, west, south, or north.").toLowerCase();
+                switch (forest_Direction7) {
+                    case "east":
+                        forestEast6();
+                    case "west":
+                        forestWest();
+                    case "north":
+                        forestNorth();
+                    case "south":
+                        forestSouth();
+                    case "inventory":
+                        invList();
+                        forestDirection7();
+                    default:
+                        alert("For I doth not know what " + forest_Direction7 + " is.");
+                        forestDirection7();
+                }
+            }
+            function forestEast6() {
+                var forest_East6 = prompt("You can only walk north, east, or south.").toLowerCase();
+                switch (forest_East6) {
+                    case "north":
+                        theSword();
+                    case "south":
+                        alert("You decide to venture south.");
+                        theMountains();
+                    case "east":
+                        forestDirection2();
+                    case "inventory":
+                        invList();
+                        forestEast6();
+                    default:
+                        alert("For I doth not know what " + forest_East6 + " is.");
+                        forestEast6();
+                }
+            }
+        }
+
     </script>
 </body>
