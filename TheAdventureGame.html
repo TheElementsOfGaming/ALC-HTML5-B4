@@ -41,6 +41,9 @@
         var sword2 = {
             taken2: 0,
         }
+        var goblinsbody = {
+            body: 0,
+        }
         Start();
 
         function Start() {
@@ -199,7 +202,8 @@
                     theGoblin();
                 }
                 else {
-                    theGoblin();
+                   alert("There's nothing here except for the goblin's dead body. You turn around and walk back to where you came from."); 
+                   forestEast3();
                 }
             }
 
@@ -347,8 +351,8 @@
             }
 
             function theGoblinOrDragon() {
-                alert("On the mountains you come to a location where there are two paths. One path leads to a door that leads to a house. The other path leads to the top of the mountains.");
-                var the_Goblin_Or_Dragon = prompt("Would you like to open the door into the house? Or do you want to go up to the top of the mountains?");
+                alert("On the mountains you come to a location where there are three paths. One path leads to a door that leads to a house. The next path leads to the top of the mountains, and the last path takes you off the mountains.");
+                var the_Goblin_Or_Dragon = prompt("Would you like to open the door into the house, go up to the top of the mountains, or walk back down?");
                 switch (the_Goblin_Or_Dragon) {
                     case "open the door":
                         if (inventory.goblinkey === 1) {
@@ -360,6 +364,10 @@
                         }
                     case "go up the mountains":
                         theTopOfTheMountains();
+                    case "walk back down":
+                        bottomOfTheMountains();
+                    case "walk off the mountains":
+                        bottomOfTheMountains();
                     case "go up to the top of the mountains":
                         theTopOfTheMountains();
                     case "go up to the mountains":
@@ -653,14 +661,14 @@
                 alert("The dragon stares at you and says so I see you've come prepared. That will do you no good though. For I am a mighty dragon you're no match for me. Before you can react the dragon pushes off the ground and claws you. Thankfully the dragon only scratches your armor. Without it you'd be a dead man for sure.");
                 alert("The dragon's health is: " + dragonlife.health + "." +
                     "\nYour health is: " + playerlife.health + ".");
-                alert("The dragon comes around for another attack. As the dragon is about to attack you, you hit the dragon with your sword. You cut off one of the dragon's legs and the dragon screams!");
+                alert("The dragon comes around for another attack. As the dragon is about to attack you, you hit the dragon with your weapon. You cut off one of the dragon's legs and the dragon screams!");
                 dragonlife.health--;
                 dragonlife.health--;
                 dragonlife.health--;
                 alert("The dragon's health is: " + dragonlife.health + "." +
                     "\nYour health is: " + playerlife.health + ".");
                 alert("The dragon is now extremely angry and begins to use every bit of strength it has to end your life.");
-                alert("As the dragon comes around for another strike, you swipe your sword to early and the dragon dodges the attack. The dragon then picks you with its one leg and throws you to the ground. The dragon broke your right arm. Luckily you're left handed!");
+                alert("As the dragon comes around for another strike, you swipe your weapon to early and the dragon dodges the attack. The dragon then picks you with its one leg and throws you to the ground. The dragon broke your right arm. Luckily you're left handed!");
                 playerlife.health--;
                 playerlife.health--;
                 playerlife.health--;
@@ -675,7 +683,7 @@
                 dragonlife.health--;
                 alert("The dragon's health is: " + dragonlife.health + "." +
                     "\nYour health is: " + playerlife.health + ".");
-                alert("You decide to take full advantage of the situation and move in to end the dragon, but the dragon still has some strength left in him. He swipes at you with his other sharp wing. This attack cuts through your arm and leaves a giant gash on your body. Blood starts to rush out, but you want to end this fight even if it means the end of your life.");
+                alert("You decide to take full advantage of the situation and move in to end the dragon, but the dragon still has some strength left in him. He swipes at you with his other sharp wing. This attack cuts through your armor and leaves a giant gash on your body. Blood starts to rush out, but you want to end this fight even if it means the end of your life.");
                 playerlife.health--;
                 playerlife.health--;
                 playerlife.health--;
@@ -867,8 +875,7 @@
                 var forest_East4 = prompt("You can only walk north, east, or south.").toLowerCase();
                 switch (forest_East4) {
                     case "north":
-                        alert("There's northing here except for the goblin's dead body. You walk south away from the body.");
-                        forestEast4();
+                        theSword();
                     case "south":
                         alert("You decide to venture south back up the mountains.");
                         theGoblinOrDragon();
