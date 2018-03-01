@@ -125,7 +125,7 @@
 
             function forestEast() {
                 alert("As time passes on you notice the forest start to thicken. Your path suddenly becomes blocked. Oh no!");
-                var forest_East = prompt("You can only walk north, east, or south.").toLowerCase();
+                var forest_East = prompt("You can only walk north, west, or south.").toLowerCase();
                 switch (forest_East) {
                     case "north":
                         alert("You decide to venture north.");
@@ -133,7 +133,7 @@
                     case "south":
                         alert("You decide to venture south.");
                         theMountains();
-                    case "east":
+                    case "west":
                         forestDirection2();
                     case "inventory":
                         invList();
@@ -281,7 +281,7 @@
                     case "inventory":
                         invList();
                     default:
-                        alert("For I doth not know what " + enter_TheCaveTheCave + " is.");
+                        alert("For I doth not know what " + enter_TheCave + " is.");
                         enterTheCave();
                 }
             }
