@@ -1,0 +1,44 @@
+<! DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <title>Color Changer</title>
+</head>
+<body>
+    <button id="change" class="btn">Change Color</button>
+    <div class="mdls">
+     <div class="modal" id="modal">
+      <div class="main">
+       <div class="left">
+        <div class="filler"></div>    
+        <div id="row1">
+           <label>
+             <input type="radio" name="colors" onclick="Preview()" value="#F44336"/>
+             <div class="box red500"></div>
+            </label>
+            
+            <label>
+              <input type="radio" name="colors" onclick="Preview()" value="#FF9800"/>
+              <div class="box orange500"></div>
+            </label>
+            
+            <label>
+              <input type="radio" name="colors" onclick="Preview()" value="#FFEB3B"/>
+              <div class="box yellow500"></div>
+            </label>
+           
+        <div id="row2">
+            <label>
+              <input type="radio" name="colors" onclick="Preview" value="#4CAF50"/>
+              <div class="box green500"></div>
+            </label>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+    </div>
+</body>
+</html>
