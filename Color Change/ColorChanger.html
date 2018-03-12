@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,51 +15,51 @@
                 <div class="left">
                     <div class="filler"></div>
                     <div id="row1">
-            <label>
+                        <label>
               <input type="radio" name="colors" onclick="Preview()" value="#F44336"/>
               <div class="box red500"></div>
             </label>
 
-            <label>
+                        <label>
               <input type="radio" name="colors" onclick="Preview()" value="#FF9800"/>
               <div class="box orange500"></div>
             </label>
 
-            <label>
+                        <label>
               <input type="radio" name="colors" onclick="Preview()" value="#FFEB3B"/>
               <div class="box yellow500"></div>
             </label>
                     </div>
 
                     <div id="row2">
-            <label>
+                        <label>
               <input type="radio" name="colors" onclick="Preview()" value="#4CAF50"/>
               <div class="box green500"></div>
             </label>
 
-            <label>
+                        <label>
               <input type="radio" name="colors" onclick="Preview()" value="#2196F3"/>
               <div class="box blue500"></div>
             </label>
 
-            <label>
+                        <label>
               <input type="radio" name="colors" onclick="Preview()" value="#3F51B5"/>
               <div class="box indigo500"></div>
             </label>
                     </div>
 
                     <div id="row3">
-            <label>
+                        <label>
               <input type="radio" name="colors" onclick="Preview()" value="#9C27B0"/>
               <div class="box purple500"></div>
             </label>
 
-            <label>
+                        <label>
               <input type="radio" name="colors" onclick="Preview()" value="#FFFFFF"/>
               <div class="box white"></div>
             </label>
 
-            <label>
+                        <label>
               <input type="radio" name="colors" onclick="Preview()" value="#9E9E9E"/>
               <div class="box grey500"></div>
             </label>
@@ -85,293 +86,7 @@
             </div>
         </div>
     </div>
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Roboto');
-
-        body {
-            background-color: white;
-            font-family: 'Roboto', sans-serif;
-            position: relative;
-            z-index: 50;
-            padding-bottom: 50px;
-        }
-
-        .main {
-            border-radius: 3px;
-            padding: 10px;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            width: 50%;
-            height: 300;
-            text-align: left;
-            background-color: #1a1a1a;
-            margin: auto;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
-        }
-
-        .main h1 {
-            color: #fff;
-        }
-
-        .main input[type="radio"] {
-            display: none;
-        }
-
-        .main input[type="radio"]+.box {
-            transition: all .4s ease-out;
-        }
-
-        .main input[type="radio"]:hover+.box {
-            transition: all .4s ease-out;
-            border-radius: 13px;
-        }
-
-        .main input[type="radio"]:checked+.box {
-            transition: ease all 0.4s;
-            border-radius: 100%;
-        }
-
-        .main .box {
-            width: 50px;
-            height: 50px;
-            border-radius: 5px;
-            will-change: transition;
-            display: inline-block;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .main .hue {
-            height: 20px;
-            width: 20px;
-            display: inline-block;
-            position: relative;
-            text-align: center;
-            font-size: 8.7px;
-            line-height: 30px;
-            padding: 0;
-            color: white;
-        }
-
-        .main .color {
-            height: 50px;
-            width: 50px;
-            display: inline-block;
-            position: relative;
-            text-align: center;
-            align-content: center;
-            font-size: 14px;
-            color: white;
-            margin: 0;
-        }
-
-        .main .fill {
-            height: 50px;
-            width: 50px;
-            display: inline-block;
-            position: relative;
-            text-align: center;
-            font-size: 14px;
-            padding: 0;
-            color: white;
-            margin: 0;
-        }
-
-        .filler {
-            flex: 1 1 auto;
-        }
-
-        #preview {
-            height: 175px;
-            width: 175px;
-            margin-top: 20px;
-            background-color: #1a1a1a;
-            margin-bottom: 20px;
-            border-radius: 20px;
-            border: 2px solid black;
-        }
-
-        .previews {
-            grid-column: 2 / 3;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background-color: rgba(0, 0, 0, 0.4);
-            overflow: auto;
-            z-index: 1;
-            transition: all .4s ease-out;
-        }
-
-        .mdls {
-            padding-top: 50px;
-            width: 50%;
-            margin: auto;
-            z-index: 999;
-            position: relative;
-        }
-
-        .left {
-            display: flex;
-            flex-direction: column;
-            grid-column: 1 / 2;
-        }
-
-        .center {
-            display: flex;
-            flex-direction: column;
-            grid-column: 2 / 3;
-        }
-
-        .right {
-            display: flex;
-            flex-direction: column;
-            grid-column: 3 / 4;
-        }
-
-        .btn {
-            margin-right: 5px;
-            border: 1px solid #000000;
-            border-radius: 50px;
-            background-color: transparent;
-            color: rgba(0, 0, 0, 0.87);
-            width: 96px;
-            height: 48px;
-            outline: none;
-            color: #000000;
-            transition: all .4s ease-out;
-        }
-
-        .btn:hover {
-            background-color: #000000;
-            color: white;
-            transition: all .4s ease-out;
-        }
-
-        .btn:active {
-            outline: none;
-        }
-
-        .btn2 {
-            margin-right: 10px;
-            border: 1px solid #2979FF;
-            border-radius: 50px;
-            background-color: transparent;
-            color: rgba(0, 0, 0, 0.87);
-            width: 96px;
-            height: 48px;
-            outline: none;
-            color: #2979FF;
-            transition: all .4s ease-out;
-            float: right;
-        }
-
-        .btn2:hover {
-            background-color: #2979FF;
-            color: white;
-            transition: all .4s ease-out;
-        }
-
-        .btn2:active {
-            outline: none;
-        }
-
-        .red500 {
-            background-color: #F44336;
-        }
-
-        .orange500 {
-            background-color: #FF9800;
-        }
-
-        .yellow500 {
-            background-color: #FFEB3B;
-        }
-
-        .green500 {
-            background-color: #4CAF50;
-        }
-
-        .blue500 {
-            background-color: #2196F3;
-        }
-
-        .indigo500 {
-            background-color: #3F51B5;
-        }
-
-        .purple500 {
-            background-color: #9C27B0;
-        }
-
-        .white {
-            background-color: #FFFFFF;
-        }
-
-        .grey500 {
-            background-color: #9E9E9E;
-        }
-    </style>
-    <script>
-        //Variables
-        //This grabs the id of the first modal and sets it equal to modal
-        var modal = document.getElementById("modal");
-        //This grabs the button with the id "change"
-        //This allows us to call a function with a click later
-        var changeBtn = document.getElementById("change");
-        //This grabs the preview
-        var preview = document.getElementById("preview");
-        //Functions
-        //Function to set Preview Boxes
-        //This sets the Preview Box color in the modal to the currently selected color
-        function Preview() {
-            //This gets the currently selected color's value and sets it equal to color
-            color = document.querySelector('input[name="colors"]:checked').value;
-            //Log what color
-            console.log("The color is " + color);
-            //Change preview color
-            preview.style.background = color;
-        }
-        //Function to change Color
-        //Change the Color
-        function changeColor() {
-            //Log what the color was changed to
-            console.log("The color is: " + color);
-            //Change the background color
-            document.body.style.background = color;
-        }
-        //Function to open modal
-        //Open color changing modal
-        changeBtn.onclick = function() {
-            modal.style.display = "grid";
-        }
-        //Function to close modal
-        //When the user clicks on the close button in modal it closes it
-        function Close() {
-            //Close modal
-            modal.style.display = "none";
-            //Reset Preview
-            preview.style.background = "#1a1a1a";
-            //Unselect any currently selected color
-            document.querySelector('input[name="colors"]:checked').checked = false;
-        }
-
-        //Close modal on window click
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                //Close modal
-                modal.style.display = "none";
-                //Reset Preview
-                preview.style.background = "#1a1a1a";
-                //Unselect any currently selected color
-                document.querySelector('input[name="colors"]:checked').checked = false;
-            }
-        }
-    </script>
 </body>
+    <link type="text/css" rel="stylesheet" href="ColorChanger.css" />
+    <script src="ColorChanger.js"></script>
 </html>
