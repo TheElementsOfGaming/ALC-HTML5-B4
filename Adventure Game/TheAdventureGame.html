@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <hl>Adventure Game v1.014</hl>
+    <hl>Adventure Game v1.2</hl>
     <p>Made by: Kyler Draper</p>
     <script>
         //Javascript Object for an inventory
@@ -154,6 +154,8 @@
                         theMountains();
                     case "west":
                         forestDirection2();
+                    case "go west":
+                        forestDirection2();
                     case "inventory":
                         invList();
                         forestEast();
@@ -236,10 +238,14 @@
                         theSword();
                     case "south":
                         theMountains();
+                    case "go south":
+                        theMountains();
                     case "inventory":
                         invList();
                         fighting_Run();
                     case "east":
+                        forestDirection6();
+                    case "go east":
                         forestDirection6();
                     default:
                         alert("For I doth not know what " + fighting_Run + " is.");
@@ -257,11 +263,19 @@
                 switch (forest_Direction2) {
                     case "east":
                         forestEast2();
+                    case "go east":
+                        forestEast2();
                     case "west":
+                        forestWest();
+                    case "go west":
                         forestWest();
                     case "north":
                         forestNorth2();
+                    case "go north":
+                        forestNorth2();
                     case "south":
+                        forestSouth();
+                    case "go south":
                         forestSouth();
                     case "inventory":
                         invList();
@@ -305,6 +319,9 @@
                     case "go to the cave":
                         theBear();
                     case "find somewhere better":
+                        alert("You decide to find somewhere better. So you continue to walk through the snow, but as you're walking the blizzard starts to get worse. So, you just give up and sit on the ground and die.");
+                        dead();
+                    case "keep walking to find somewhere better":
                         alert("You decide to find somewhere better. So you continue to walk through the snow, but as you're walking the blizzard starts to get worse. So, you just give up and sit on the ground and die.");
                         dead();
                     case "inventory":
@@ -452,10 +469,17 @@
                     switch (Forest_EastAfterFight) {
                         case "north":
                            theSword();
+                        case "go north":
+                            theSword();
                         case "south":
                             alert("You decide to venture south.");
                             theMountains();
+                        case "go south":
+                            alert("You decide to venture south.");
+                            theMountains();
                         case "east":
+                            forestDirection4();
+                        case "go east":
                             forestDirection4();
                         case "inventory":
                             invList();
@@ -472,11 +496,19 @@
                 switch (forest_Direction4) {
                     case "east":
                         forestEast2();
+                    case "go east":
+                        forestEast2();
                     case "west":
+                        forestWest();
+                    case "go west":
                         forestWest();
                     case "north":
                         forestNorth();
+                    case "go north":
+                        forestNorth();
                     case "south":
+                        forestSouth();
+                    case "go south":
                         forestSouth();
                     case "inventory":
                         invList();
@@ -492,10 +524,17 @@
                 switch (forest_East2) {
                     case "north":
                         theSword();
+                    case "go north":
+                        theSword();
                     case "south":
                         alert("You decide to venture south.");
                         theMountains();
+                    case "go south":
+                        alert("You decide to venture south.");
+                        theMountains();
                     case "east":
+                        forestDirection2();
+                    case" go east":
                         forestDirection2();
                     case "inventory":
                         invList();
@@ -511,9 +550,14 @@
                 var forest_EastDeadOldMan = prompt("You can only walk south or east.");
                 switch (forest_EastDeadOldMan) {
                     case "south":
-                        alert("you decide to venture south.");
+                        alert("You decide to venture south.");
+                        theMountains();
+                    case "go south":
+                        alert("You decide to venture south.");
                         theMountains();
                     case "east":
+                        forestDirection2();
+                    case "go east":
                         forestDirection2();
                     case "inventory":
                         invList();
@@ -536,12 +580,22 @@
                     case "east":
                         alert("You start walking east.");
                         forestEast();
+                    case "go east":
+                        alert("You start walking east.");
+                        forestEast();
                     case "west":
+                        alert("You start walking west.");
+                        forestWest();
+                    case "go west":
                         alert("You start walking west.");
                         forestWest();
                     case "north":
                         forestNorth2();
+                    case "go north":
+                        forestNorth2();
                     case "south":
+                        forestSouth();
+                    case "go south":
                         forestSouth();
                     case "inventory":
                         invList();
@@ -789,9 +843,15 @@
                 switch (bottom_OfTheMountains) {
                     case "north":
                         theSword();
+                    case "go north":
+                        theSword();
                     case "south":
                         theMountains();
+                    case "go south":
+                        theMountains();
                     case "east":
+                        forestDirection5();
+                    case "go east":
                         forestDirection5();
                     case "inventory":
                         invList();
@@ -832,11 +892,19 @@
                 switch (forest_Direction5) {
                     case "east":
                         forestEast3();
+                    case "go east":
+                        forestEast3();
                     case "west":
+                        forestWest();
+                    case "go west":
                         forestWest();
                     case "north":
                         forestNorth2();
+                    case "go north":
+                        forestNorth2();
                     case "south":
+                        forestSouth();
+                    case "go south":
                         forestSouth();
                     case "inventory":
                         invList();
@@ -852,11 +920,19 @@
                 switch (forest_Direction6) {
                     case "east":
                         forestEast5();
+                    case "go east":
+                        forestEast5();
                     case "west":
+                        forestWest();
+                    case "go west":
                         forestWest();
                     case "north":
                         forestNorth();
+                    case "go north":
+                        forestNorth();
                     case "south":
+                        forestSouth();
+                    case "go south":
                         forestSouth();
                     case "inventory":
                         invList();
@@ -872,10 +948,17 @@
                 switch (forest_East3) {
                     case "north":
                         theSword();
+                    case "go north":
+                        theSword();
                     case "south":
                         alert("You decide to venture south.");
                         theMountains();
+                    case "go south":
+                        alert("YOu decide to venture south."):
+                        theMountains();
                     case "east":
+                        forestDirection2();
+                    case "go east":
                         forestDirection2();
                     case "inventory":
                         invList();
@@ -891,10 +974,17 @@
                 switch (forest_East5) {
                     case "north":
                         theSword();
+                    case "go north":
+                        theSword();
                     case "south":
                         alert("You decide to venture south.");
                         theMountains();
+                    case "go south":
+                        alert("You decide to venture south.");
+                        theMountains();
                     case "east":
+                        forestDirection2();
+                    case "go east":
                         forestDirection2();
                     case "inventory":
                         invList();
@@ -910,10 +1000,17 @@
                 switch (forest_East4) {
                     case "north":
                         theSword();
+                    case "go north":
+                        theSword();
                     case "south":
                         alert("You decide to venture south back up the mountains.");
                         theGoblinOrDragon();
+                    case "go south":
+                        alert("You decide to venture south back up the mountains.");
+                        theGoblinOrDragon();
                     case "east":
+                        forestDirection2();
+                    case "go east":
                         forestDirection2();
                     case "inventory":
                         invList();
@@ -935,11 +1032,19 @@
                 switch (forest_Direction7) {
                     case "east":
                         forestEast6();
+                    case "go east":
+                        forestEast6();
                     case "west":
+                        forestWest();
+                    case "go west":
                         forestWest();
                     case "north":
                         forestNorth();
+                    case "go north":
+                        forestNorth();
                     case "south":
+                        forestSouth();
+                    case "go south":
                         forestSouth();
                     case "inventory":
                         invList();
@@ -954,10 +1059,17 @@
                 switch (forest_East6) {
                     case "north":
                         theSword();
+                    case "go north":
+                        theSword();
                     case "south":
                         alert("You decide to venture south.");
                         theMountains();
+                    case "go south":
+                        alert("You decide to venture south.");
+                        theMountains();
                     case "east":
+                        forestDirection2();
+                    case "go east":
                         forestDirection2();
                     case "inventory":
                         invList();
