@@ -59,12 +59,15 @@
                     break;
                 case "IDON'TKNOW":
                     alert("Wow you're original. ヽ(ಠ_ಠ)ノ How can you not come up with a random name? It's not that hard, just type in random letters if you have to.");
-                    alert("Welcome to The World of Confusion.");
+                    alert("Welcome to The World of Confusion, lazy.");
                     break;
                 case "TIDE POD":
                     alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play.")
                     closeWin();
                 case "TIDEPOD":
+                    alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play.")
+                    closeWin();
+                case "TIDPOD":
                     alert("You're not allowed to play this game. Maybe, if you wouldn't have typed that in you'd be fine, but no you just had to talk about something that is so dumb, I can't even comprehend it. •`_´• Get a better name and you can play.")
                     closeWin();
                 case "FIDGET SPINNER":
@@ -96,12 +99,22 @@
                     case "east":
                         alert("You start walking east.");
                         forestEast();
+                    case "go east":
+                        alert("You start walking east.");
+                        forestEast();
                     case "west":
                         alert("You start walking west.");
                         forestWest();
+                    case "go west":
+                        alert("You start walking west.");
+                        forestWest():
                     case "north":
                         forestNorth();
+                    case "go north":
+                        forestNorth();
                     case "south":
+                        forestSouth();
+                    case "go south":
                         forestSouth();
                     case "inventory":
                         invList();
@@ -130,7 +143,13 @@
                     case "north":
                         alert("You decide to venture north.");
                         theSword();
+                    case "go north":
+                        alert("You decide to venture north.");
+                        theSword();
                     case "south":
+                        alert("You decide to venture south.");
+                        theMountains();
+                    case "go south":
                         alert("You decide to venture south.");
                         theMountains();
                     case "west":
@@ -265,6 +284,10 @@
                         enterTheCave();
                     case "continue to venture the tundra":
                         enterTheCave();
+                    case "continue":
+                        enterTheCave();
+                    case "continue to venture through the tundra":
+                        enterTheCave();
                     case "inventory":
                         invList();
                     default:
@@ -335,7 +358,7 @@
             }
             
             function forestNorth2() {
-                alert("You've already went this way. It lead to the Tundra remember?");
+                alert("You've already gone this way. It lead to the Tundra remember?");
                 forestDirection2();
             }
 
