@@ -7,7 +7,7 @@
             preview.style.background = color;
         }
         
-        function changeColor() {
+        function changeTheme() {
             console.log("The color is: " + color);
             document.body.style.background = color;
         }
@@ -25,7 +25,7 @@
         window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
-                preview.style.background = "#1a1a1a";zsD 
+                preview.style.background = "#1a1a1a";
                 document.querySelector('input[name="colors"]:checked').checked = false;
             }
         }
