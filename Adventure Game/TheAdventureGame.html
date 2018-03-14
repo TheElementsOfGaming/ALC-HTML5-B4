@@ -203,6 +203,10 @@
                    alert("There's nothing here except for the goblin's dead body. You turn around and walk back to where you came from."); 
                    forestEast3();
                 }
+                else {
+                theSword();
+                }
+                   
             }
 
             //Went West at the start of the game, but discovered a desert storm so you headed back to your starting location.
@@ -237,7 +241,7 @@
                     case "west":
                         forestWest();
                     case "north":
-                        forestNorth();
+                        forestNorth2();
                     case "south":
                         forestSouth();
                     case "inventory":
@@ -258,6 +262,8 @@
                     case "head back to the start of the game":
                         forestDirection7();
                     case "venture the tundra":
+                        enterTheCave();
+                    case "continue to venture the tundra":
                         enterTheCave();
                     case "inventory":
                         invList();
@@ -326,6 +332,11 @@
                 alert("As you're walking the climate starts to change. The air started to become humid. You start to get very hot. You've come to a jungle, but you can't enter the Jungle. There's a huge storm going on. So, you turn around and head back to your starting location.");
                 forestDirection2();
 
+            }
+            
+            function forestNorth2() {
+                alert("You've already went this way. It lead to the Tundra remember?");
+                forestDirection2();
             }
 
             function theOldMan() {
@@ -507,7 +518,7 @@
                         alert("You start walking west.");
                         forestWest();
                     case "north":
-                        forestNorth();
+                        forestNorth2();
                     case "south":
                         forestSouth();
                     case "inventory":
@@ -666,7 +677,7 @@
                 alert("The dragon's health is: " + dragonlife.health + "." +
                     "\nYour health is: " + playerlife.health + ".");
                 alert("The dragon is now extremely angry and begins to use every bit of strength it has to end your life.");
-                alert("As the dragon comes around for another strike, you swipe your weapon to early and the dragon dodges the attack. The dragon then picks you with its one leg and throws you to the ground. The dragon broke your right arm. Luckily you're left handed!");
+                alert("As the dragon comes around for another strike, you swipe your weapon to early and the dragon dodges the attack. The dragon then picks you up with its one leg and throws you to the ground. The dragon broke your right arm. Luckily you're left handed!");
                 playerlife.health--;
                 playerlife.health--;
                 playerlife.health--;
@@ -802,7 +813,7 @@
                     case "west":
                         forestWest();
                     case "north":
-                        forestNorth();
+                        forestNorth2();
                     case "south":
                         forestSouth();
                     case "inventory":
