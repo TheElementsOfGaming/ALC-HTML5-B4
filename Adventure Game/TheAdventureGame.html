@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <hl>Adventure Game v1.013</hl>
+    <hl>Adventure Game v1.014</hl>
     <p>Made by: Kyler Draper</p>
     <script>
         //Javascript Object for an inventory
@@ -491,8 +491,7 @@
                 var forest_East2 = prompt("You can only walk north, east, or south.").toLowerCase();
                 switch (forest_East2) {
                     case "north":
-                        alert("There's nothing here except for the old man's dead body. You walk south away from the body.");
-                        forestEast2();
+                        theSword();
                     case "south":
                         alert("You decide to venture south.");
                         theMountains();
