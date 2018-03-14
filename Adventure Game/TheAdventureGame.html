@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <hl>Adventure Game v1.0</hl>
+    <hl>Adventure Game v1.012</hl>
     <p>Made by: Kyler Draper</p>
     <script>
         //Javascript Object for an inventory
@@ -756,7 +756,7 @@
                     dragonlife.health--;
                     alert("The dragon's health is: " + dragonlife.health + ".");
                     dead();
-                } else if (playerlife === 4) {
+                } else if (playerlife.health === 4) {
                     playerlife.health--;
                     playerlife.health--;
                     playerlife.health--;
@@ -767,7 +767,7 @@
                     alert("The dragon's health is: " + dragonlife.health + ".");
                     alert("You tried to be a tough guy and fight without any armor. Sadly though, you died a weak boy.");
                     dead();
-                } else if (playerlife === 6) {
+                } else if (playerlife.health === 6) {
                     playerlife.health--;
                     playerlife.health--;
                     playerlife.health--;
