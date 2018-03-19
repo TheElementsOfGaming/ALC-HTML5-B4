@@ -5,9 +5,18 @@
     randomNum();
 
     function randomNum() {
-        var random_Num = Math.floor(Math.random() * 3 + 1);
-    
-        function test() {
+        var random_Num = Math.floor(Math.random() * 3);
+        if(random_Num == 0){
+            document.writeln("zero");
+        }
+        else if(random_Num == 1){
+            document.writeln("one");
+        }
+        else if(random_Num == 2){
+            document.writeln("two");
+        }
+    }
+    function test(){
         location.reload();
     }
 </script>
