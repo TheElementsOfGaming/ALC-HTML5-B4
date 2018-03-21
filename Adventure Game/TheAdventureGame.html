@@ -44,6 +44,9 @@
         var theDeadGoblin = {
             body: 0,
         }
+        var visit = {
+            Tundra: 0,
+        }
         Start();
 
         function Start() {
@@ -244,9 +247,9 @@
                         invList();
                         fighting_Run();
                     case "east":
-                        forestDirection6();
+                        forestDirection();
                     case "go east":
-                        forestDirection6();
+                        forestDirection();
                     default:
                         alert("For I doth not know what " + fighting_Run + " is.");
                         fightingRun();
@@ -287,6 +290,7 @@
             }
 
             function theTundra() {
+                visit.Tundra++;
                 alert("As you're walking you realize that its starting to get really cold. You've entered a Tundra.");
                 var ventureTheTundra = prompt("Do you want to continue to venture through the Tundra or do you want to head back to the start of the game?").toLowerCase();
                 switch (ventureTheTundra) {
@@ -344,7 +348,7 @@
                         alert("You use all your strength to stab the bear in the head. The bear falls over and dies.");
                         alert("You rip off parts of your shirt to make a bandage for your arm. The bandage becomes soaked with blood, but it works as a make shift bandage.");
                         alert("After your encounter with the bear you decide the Tundra isn't worth it and begin to head back to the forest. Thankfully the blizzard stopped.");
-                        forestDirection2();
+                        forestDirection();
                      case "fight":
                         alert("You decide to fight the bear.");
                         alert("You pull out your shiv and attack the bear." + "\nThe bear attacks first. He bites your arm. Blood starts to come rushing out of your arm. You scream in pain.");
@@ -353,7 +357,7 @@
                         alert("You use all your strength to stab the bear in the head. The bear falls over and dies.");
                         alert("You rip off parts of your shirt to make a bandage for your arm. The bandage becomes soaked with blood, but it works as a make shift bandage.");
                         alert("After your encounter with the bear you decide the Tundra isn't worth it and begin to head back to the forest. Thankfully the blizzard stopped.");
-                        forestDirection2();
+                        forestDirection();
                     case "run":
                         alert("You decide to run away. The bear chases after you. This bear is faster then you running in the snow. So, it easily catches up and eats you.");
                         dead();
@@ -538,7 +542,7 @@
                         forestDirection2();
                     case "inventory":
                         invList();
-                        forestEast();
+                        forestEast2();
                     default:
                         alert("For I doth not know what " + forest_East2 + " is.");
                         forestEast2();
@@ -556,9 +560,9 @@
                         alert("You decide to venture south.");
                         theMountains();
                     case "east":
-                        forestDirection2();
+                        forestDirection();
                     case "go east":
-                        forestDirection2();
+                        forestDirection();
                     case "inventory":
                         invList();
                         forestEastDeadOldMan();
