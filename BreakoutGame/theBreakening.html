@@ -5,12 +5,12 @@
     <title>the Breakening</title>
     <style>
         * {padding: 0; margin:0; }
-        canvas{background: #eee; display: block; margin: 0 auto; }
+        canvas{background: #ffffff; display: block; margin: 0 auto; }
     </style>
  </head>
 <body>
     
-    <canvas id="myCanvas" width="480" height="320"></canvas>
+    <canvas id="myCanvas" width="700" height="400"></canvas>
 <script>
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
@@ -24,15 +24,15 @@
     var paddleX = (canvas.width-paddleWidth)/2;
     var rightPressed = false;
     var leftPressed = false;
-    var brickRowCount = 3;
-    var brickColumnCount = 5;
+    var brickRowCount = 4;
+    var brickColumnCount = 6;
     var brickWidth = 75;
     var brickHeight = 20;
-    var brickPadding = 10;
-    var brickOffsetTop = 30;
-    var brickOffsetLeft = 30;
+    var brickPadding = 32;
+    var brickOffsetTop = 40;
+    var brickOffsetLeft = 40;
     var score = 0;
-    var lives = 3;
+    var lives = 2;
     
     
     var bricks = [];
@@ -93,20 +93,20 @@
     
     function drawScore() {
         ctx.font = "16px Courier";
-        ctx.fillStyle = "#0095DD";
+        ctx.fillStyle = "#8db7db";
         ctx.fillText("Score: " + score, 8 ,20)
     }
     
     function drawLives() {
         ctx.font = "16px Courier";
-        ctx.fillStyle = "#0095DD";
+        ctx.fillStyle = "8db7db";
         ctx.fillText("Lives: "+lives, canvas.width-90, 20);
     }
  
     function drawBall() {
        ctx.beginPath();
         ctx.arc(x, y, ballRadius, 0, Math.PI*2);
-        ctx.fillStyle = "#e5caf9";
+        ctx.fillStyle = "#284863";
         ctx.fill();
         ctx.closePath();
 
@@ -115,7 +115,7 @@
     function drawPaddle() {
         ctx.beginPath();
         ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
-        ctx.fillStyle = "#81d498";
+        ctx.fillStyle = "#33a4b9";
         ctx.fill();
         ctx.closePath();
     }
@@ -130,7 +130,7 @@
                 bricks[c][r].y = brickY;
                 ctx.beginPath();
                 ctx.rect(brickX, brickY, brickWidth, brickHeight);
-                ctx.fillStyle = "#abd8ea";
+                ctx.fillStyle = "#33a4b9";
                 ctx.fill();
                 ctx.closePath();
                 }
@@ -192,6 +192,11 @@
 draw();
     
    
-</script>    
+</script> 
+    <style>
+        body {
+            background-color: antiquewhite;
+        }
+    </style>
 </body>    
 </html>
