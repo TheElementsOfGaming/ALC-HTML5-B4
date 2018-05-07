@@ -45,10 +45,10 @@
     function preload() 
     {
         this.load.image('sky', 'assets/mountains2.png');
-        this.load.image('ground', 'assets/platform.png');
+        this.load.image('ground', 'assets/platform2.0.png');
         this.load.image('star', 'assets/star.png');
-        this.load.image('bomb', 'assets/bomb.png');
-        this.load.spritesheet('dude', 'assets/open.png', { frameWidth: 32, frameHeight: 48 });
+        this.load.image('bomb', 'assets/turnip.png');
+        this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
     }
     
     
@@ -58,11 +58,18 @@
         
         platforms = this.physics.add.staticGroup();
         
-        platforms.create(400, 568, 'ground').setScale(2).refreshBody();
+        platforms.create(250, 550, 'ground').setScale(1).refreshBody();
         
-        platforms.create(600, 400, 'ground');
-        platforms.create(50, 250, 'ground');
-        platforms.create(750, 220, 'ground');
+        platforms.create(500, 375, 'ground');
+        platforms.create(750, 300, 'ground');
+        platforms.create(200, 200, 'ground');
+        platforms.create(22, 200, 'ground');
+        platforms.create(100, 550, 'ground');
+        platforms.create(350, 550, 'ground');
+        platforms.create(485, 550, 'ground');
+        platforms.create(590, 550, 'ground');
+        platforms.create(720, 550, 'ground');
+        
         
         player = this.physics.add.sprite(100, 450, 'dude');
         
