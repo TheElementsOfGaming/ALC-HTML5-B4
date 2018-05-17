@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
  <meta charset="utf-8">
-    <title>Fruit Fighter</title>
+    <title>Seal Fighter</title>
     <script src="//cdn.jsdelivr.net/npm/phaser@3.1.1/dist/phaser.js"></script>
     <style type="text/css">
         body {
@@ -45,10 +45,10 @@
     
     function preload() 
     {
-        this.load.image('sky', 'assets/mountains2.png');
-        this.load.image('ground', 'assets/platform2.0.png');
-        this.load.image('star', 'assets/sprite_0.png');
-        this.load.image('bomb', 'assets/turnip.png');
+        this.load.image('sky', 'assets/City.jpg');
+        this.load.image('ground', 'assets/platforms.png');
+        this.load.image('star', 'assets/Barrel.png');
+        this.load.image('bomb', 'assets/babySeal.png');
         this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
     }
     
@@ -59,12 +59,13 @@
         
         platforms = this.physics.add.staticGroup();
         
-        platforms.create(250, 550, 'ground').setScale(1).refreshBody();
+        platforms.create(250, 550, 'ground').setScale(0.1).refreshBody();
         
-        platforms.create(500, 375, 'ground');
-        platforms.create(750, 300, 'ground');
-        platforms.create(200, 200, 'ground');
-        platforms.create(22, 200, 'ground');
+        platforms.create(500, 425, 'ground');
+        platforms.create(700, 100, 'ground');
+        platforms.create(150, 250, 'ground');
+         
+         
         platforms.create(100, 550, 'ground');
         platforms.create(350, 550, 'ground');
         platforms.create(485, 550, 'ground');
@@ -120,7 +121,7 @@
         
         this.physics.add.collider(player, bombs, hitBomb, null, this);
         
-        scoreText= this.add.text(16, 1, 'score: 0', {fontSize: '32px', fill: '#000'});
+        scoreText= this.add.text(300, 1, 'score: 0', {fontSize: '32px', fill: '#000'});
     }
     
     function update() 
